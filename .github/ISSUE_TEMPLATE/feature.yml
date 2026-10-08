@@ -2,13 +2,36 @@ name: Feature request
 description: Something you'd like Moontors to do.
 labels: [enhancement]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. Please check the [open issues](https://github.com/moontors/moontors/issues) first; if it's already there, a 👍 on it helps us see what matters most.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you're trying to do
+      description: The task or situation where Moontors falls short today.
+    validations:
+      required: true
   - type: textarea
     id: what
     attributes:
       label: What you'd like
+      description: How you'd like Moontors to handle it.
     validations:
       required: true
-  - type: textarea
-    id: why
+  - type: dropdown
+    id: agent
     attributes:
-      label: Why it would help
+      label: Agent
+      description: Is it about one agent in particular?
+      options:
+        - All of them, or none in particular
+        - Claude Code
+        - Codex
+        - Gemini CLI
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else
+      description: Other apps that do it well, sketches or screenshots.

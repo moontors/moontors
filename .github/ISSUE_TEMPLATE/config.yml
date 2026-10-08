@@ -1,1 +1,8 @@
 blank_issues_enabled: false
+contact_links:
+  - name: Something else
+    url: https://github.com/moontors/moontors#feedback-and-support
+    about: For anything that isn't a bug or a feature request, email hello@moontors.com.
+  - name: Privacy Policy
+    url: https://github.com/moontors/moontors/blob/main/PRIVACY.md
+    about: What Moontors keeps, where, and what reaches the internet.

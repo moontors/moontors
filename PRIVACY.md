@@ -1,11 +1,11 @@
 # Privacy Policy
 
-Last updated: 7 October 2026
+Last updated: 8 October 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex and Gemini CLI) on your
-own computer. This policy says what Moontors does with your information. In short: Moontors itself
-collects nothing about you, keeps what it stores on your computer, and gives the agents only what
-they need to do your work, listed below.
+own computer. This policy says what Moontors, and its website moontors.com (see "The website"), do
+with your information. In short: Moontors itself collects nothing about you, keeps what it stores
+on your computer, and gives the agents only what they need to do your work, listed below.
 
 ## What Moontors keeps, and where
 
@@ -15,8 +15,9 @@ internet".
 
 - **In a `.moontors` folder in your home folder:**
   - your sessions (their transcripts and settings), the board's layout and your projects, in
-    Moontors' database. Before an update that changes the database, Moontors keeps a backup copy
-    of it beside it (`moontors.db.v<number>-<time>.bak`);
+    Moontors' database. When an update changes the database, Moontors first copies it as it was,
+    on the new version's first start, and keeps that backup beside it
+    (`moontors.db.v<number>-<time>.bak`), in place of any copy an earlier update kept;
   - the background service's log;
   - the agents' own programs, which Moontors downloads;
   - each agent's folder for the sessions Moontors runs. The agent keeps its own files there, and
@@ -49,14 +50,24 @@ The agents also keep files of their own outside these folders. For example, Clau
 
 ### Deleting it
 
-- Deleting a session in Moontors deletes it from Moontors' database; a backup copy made before an
-  earlier update still holds it until you delete that copy. Where the agent can, deleting a
-  session also deletes the agent's own copy, and Moontors says before you confirm whether it will.
-  Neither reaches what the agent's vendor keeps on its own servers.
-- Signing out of a provider in Moontors removes the key you gave it from the keychain, and runs
-  the agent's own sign-out, which removes the sign-in it kept (such as Claude Code's keychain
-  entry, Codex's `auth.json` or Gemini CLI's credentials).
-- To remove everything Moontors keeps:
+- Deleting a session in Moontors deletes it from Moontors' database, and overwrites the space it
+  took there, so its text doesn't linger in the file. The backup copy from the latest update that
+  changed the database may still hold it, until the next such update replaces that copy or you
+  delete it. Where the agent can, deleting a session also deletes the agent's own copy, and
+  Moontors says before you confirm whether it will. Gemini CLI also keeps your prompts in its
+  project's own log, which deleting a session leaves in place. Neither reaches what the agent's
+  vendor keeps on its own servers.
+- Signing out of a provider in Moontors removes the key you gave it from the keychain, and signs
+  the agent out, which removes the sign-in it kept (such as Claude Code's keychain entry, Codex's
+  `auth.json`, or Gemini CLI's credentials and its record of which Google account signed in).
+- To remove everything Moontors keeps, choose **Help → Remove Moontors' Data…** in Moontors. It
+  lists what it will delete first, including any worktree with uncommitted changes. Then it signs
+  out of each provider, removes Moontors' keychain entries, stops the background service, deletes
+  the folders listed above (on macOS, its preferences and saved window state too) and quits. It
+  removes links to your own folders as links, never following them. It leaves your repositories'
+  branches and Git's worktree records (step 3 below), the Codex sandbox accounts on Windows
+  (step 5) and files the agents keep for themselves (step 6).
+- To do it by hand instead, for example if Moontors can't start:
   1. Sign out of each provider in Moontors, then quit Moontors. The background service stops on
      its own once any running sessions finish.
   2. Delete the `.moontors` folder, the app's own folder and the update cache folder listed above,
@@ -133,6 +144,21 @@ What Moontors gives an agent goes only to that agent, which may pass it on to it
 
 Moontors receives from the agents only what they report to it (their replies, models, usage and
 limits), and keeps it on your computer.
+
+## The website
+
+This policy also covers Moontors' website, moontors.com:
+
+- It's a set of static pages. It sets no cookies, and has no analytics, advertising or trackers.
+- The docs' sidebar remembers which sections you opened, in your browser's session storage, which
+  stays in that tab and is never sent.
+- Its search runs in your browser, on an index it loads from the site, so what you search for
+  isn't sent anywhere.
+- It's hosted by Render, which serves the pages and, like any web host, sees your IP address and
+  the pages you request, under Render's own privacy policy.
+- Its download links lead to GitHub, which sees the download as described above.
+
+If the site ever adds cookies or analytics, this policy changes first.
 
 ## Children
 

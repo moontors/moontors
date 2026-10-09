@@ -5,8 +5,8 @@
 <h1 align="center">Moontors</h1>
 
 <p align="center">
-  <strong>Run Claude Code, Codex and Gemini CLI side by side, on macOS, Windows and Linux.</strong><br>
-  A free agentic development environment (ADE) that keeps every agent in view, and working in the background.
+  <strong>Many agents. Every project. One board.</strong><br>
+  Run Claude Code, Codex and Gemini CLI side by side, across all your projects, on macOS, Windows and Linux. A free agentic development environment (ADE) that keeps all of them in view, and working in the background.
 </p>
 
 <p align="center">
@@ -19,6 +19,10 @@
   <a href="https://github.com/moontors/moontors/releases/latest"><strong>Download</strong></a> ·
   <a href="https://github.com/moontors/moontors/issues/new/choose">Report a bug</a> ·
   <a href="https://github.com/moontors/moontors/issues/new/choose">Request a feature</a>
+</p>
+
+<p align="center">
+  <a href="https://moontors.com"><img src=".github/assets/hero.webp" alt="Several agents at work on the Moontors board at once." width="100%"></a>
 </p>
 
 ---
@@ -35,7 +39,7 @@ working when the window is closed.
 
 ## Features
 
-- **Every agent on one board.** Claude Code, Codex and Gemini CLI sessions side by side, each card
+- **Every session on one board.** Claude Code, Codex and Gemini CLI sessions side by side, each card
   showing its transcript live. Sort them into your own sections, and filter by project.
 - **Keeps working without you.** Sessions run in a background service, not in the window, so they
   carry on when you close it. While Moontors is open, a desktop notification tells you when a
@@ -49,8 +53,8 @@ working when the window is closed.
 - **The agents' own commands.** Each agent's slash commands work in Moontors, apart from those
   that only make sense in a terminal, along with `/rewind`, `/compact`, side questions, subtasks,
   forks, `/export` and `@` file mentions.
-- **Your setup, untouched.** Your agents' settings, MCP servers, skills, commands and plugins all
-  reach Moontors' sessions, and Moontors never writes your own configuration files.
+- **Your setup, untouched.** Your agents' settings, MCP servers, skills and commands reach
+  Moontors' sessions, and Moontors never writes your own configuration files.
 - **Usage at a glance.** A context meter on every card, token usage, and your account's limits.
 - **Private by design.** No Moontors account, no telemetry, no tracking. Moontors keeps your
   sessions on your computer, and each agent talks to its own vendor, to the services and MCP servers you
@@ -81,8 +85,8 @@ Claude Code needs [Git for Windows](https://gitforwindows.org).
 - **Linux:** make the AppImage executable (`chmod +x Moontors-x86_64.AppImage`) and run it, or
   install the `.deb` with `sudo apt install ./<file>.deb`.
   - The AppImage needs FUSE. Without it, start it with `--appimage-extract-and-run`.
-  - On systems that restrict unprivileged user namespaces, such as Ubuntu 24.04, the AppImage
-    runs with Chromium's sandbox off, while the `.deb` keeps it on.
+  - On systems that block the user namespaces Chromium's sandbox needs, such as Ubuntu 24.04, the
+    AppImage runs with Chromium's sandbox off, and says so once. The `.deb` keeps the sandbox on.
 
 ## Getting started
 
@@ -99,7 +103,10 @@ Moontors checks for a new version when it starts and every 4 hours, and download
 background. When it's ready, Moontors offers **Restart to update**. Choose it when it suits you:
 Moontors waits for running work to finish, installs the update and reopens.
 
-- The AppImage updates itself. The `.deb` asks for your password to update.
+- The AppImage updates itself: it deletes the old file, then moves the new one into its place, so if
+  that move fails (a full disk, or the machine stopping in between), download it again.
+- The `.deb` asks for your password to update. It isn't signed, so only the download's checksum is
+  checked, and if a package it needs is missing, apt may add or remove packages to fix that.
 - Until Moontors' macOS builds are signed, macOS offers **Download** instead, which opens the new
   version's download page.
 
@@ -113,6 +120,10 @@ Moontors does that for several agents at once, from different vendors, in one wi
 **Does Moontors replace Claude Code, Codex or Gemini CLI?**
 No. Moontors runs each vendor's own official agent, so you get the same agent, signed in with your
 own account and using your own settings, MCP servers and skills, with a desktop app around it.
+
+**Is Moontors free?**
+Yes. Moontors is free to use, with no account. You use your own plan or API key with each agent's
+vendor.
 
 **What do I need to use it?**
 An account with the agent's vendor: a Claude subscription or an Anthropic API key for Claude Code,
@@ -139,7 +150,8 @@ Moontors keeps your sessions on your computer.
 
 Moontors has no account, telemetry or tracking. The [Privacy Policy](PRIVACY.md) says exactly what
 it keeps, where, and what reaches the internet. Use of Moontors is governed by the
-[Terms of Use](TERMS.md).
+[Terms of Use](TERMS.md). The open-source software Moontors includes, and its licenses, are listed
+in the [third-party notices](https://moontors.com/policies/notices/).
 
 ---
 

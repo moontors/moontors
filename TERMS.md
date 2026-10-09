@@ -6,9 +6,9 @@ These terms are an agreement between you and the maker of Moontors ("we", "us") 
 the Moontors desktop app ("Moontors"). By installing or using Moontors, you agree to them. If you
 don't agree, don't use Moontors.
 
-## Your licence
+## Your license
 
-Moontors is free to use today. We give you a personal, non-exclusive, non-transferable licence to
+Moontors is free to use today. We give you a personal, non-exclusive, non-transferable license to
 install and use Moontors on computers you use, for your own work, personal or commercial.
 
 You may not:
@@ -19,7 +19,7 @@ You may not:
   terms;
 - remove or change its copyright notices.
 
-Moontors includes open-source software, each part under its own licence, which applies to that
+Moontors includes open-source software, each part under its own license, which applies to that
 part. They are listed in the app's Third-party notices.
 
 ## Paid features
@@ -69,7 +69,7 @@ after a change means you accept it.
 ## Ending
 
 You can stop using Moontors at any time by uninstalling it; the Privacy Policy says how to remove
-everything it keeps. Your licence ends if you break these terms.
+everything it keeps. Your license ends if you break these terms.
 
 ## Law
 

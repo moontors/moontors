@@ -48,6 +48,16 @@ body:
         - Linux (.deb)
     validations:
       required: true
+  - type: dropdown
+    id: arch
+    attributes:
+      label: Processor
+      description: On macOS, Apple menu › About This Mac; on Windows, Settings › System › About.
+      options:
+        - arm64 (Apple silicon)
+        - x64 (Intel or AMD)
+    validations:
+      required: true
   - type: input
     id: os_version
     attributes:

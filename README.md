@@ -101,7 +101,8 @@ Claude Code needs [Git for Windows](https://gitforwindows.org).
 
 Moontors checks for a new version when it starts and every 4 hours, and downloads it in the
 background. When it's ready, Moontors offers **Restart to update**. Choose it when it suits you:
-Moontors waits for running work to finish, installs the update and reopens.
+Moontors waits for running work to finish, installs the update and reopens. To look at once, choose
+**Check for Updates…**: in the Moontors menu on macOS, and in Help on Windows and Linux.
 
 - The AppImage updates itself: it deletes the old file, then moves the new one into its place, so if
   that move fails (a full disk, or the machine stopping in between), download it again.

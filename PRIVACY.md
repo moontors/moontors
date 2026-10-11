@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 8 October 2026
+Last updated: 11 October 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex and Gemini CLI) on your
 own computer. This policy says what Moontors, and its website moontors.com (see "The website"), do
@@ -24,7 +24,16 @@ internet".
     its sign-in when you sign in through Moontors. Moontors also puts a copy of your own
     configuration for that agent there (such as its settings, your MCP servers and their
     credentials, and your instructions), and links to your own skills, commands, agents, rules
-    and extensions (on Windows, some of them as copies), so its sessions run with your setup;
+    and extensions (on Windows, some of them as copies), so its sessions run with your setup. For
+    Codex, that includes a copy of its plugin cache, which Moontors refreshes from yours each time
+    the agent starts; plugins Codex installs for the account you signed in with through Moontors
+    stay only in Moontors' copy. Gemini CLI has one such folder for each sign-in, sharing the
+    sessions' history, and an old one is deleted once no session uses it;
+  - the files you attach to messages. A file you send is kept with its session, copied to a fork of
+    it, and deleted with the session. A file you add but don't send is deleted after an hour, or
+    when the background service next starts;
+  - for a Claude Code session given a plugin with secrets, a private file holding them (see "Your
+    own agents' secrets" below), deleted when that run of the agent ends;
   - the worktrees Moontors makes for sessions that work on their own branch.
 - **In your operating system's keychain** (the macOS Keychain, Windows Credential Manager, or your
   Linux desktop's secret store; where none runs, the kernel's keyring, which forgets it at
@@ -48,10 +57,23 @@ internet".
 The agents also keep files of their own outside these folders. For example, Claude Code keeps
 `~/.claude/.device-keys.json` in your home folder.
 
+### Your own agents' secrets
+
+A Claude Code plugin can keep sensitive options, and its MCP servers' secrets, in your own Claude
+Code's entry in the system keychain (`Claude Code-credentials`), beside its sign-in; on Windows and
+Linux, in its credentials file. Moontors reads that entry only when it starts a session with a
+plugin that declares such an option. On macOS the system doesn't ask you first: Moontors reads the
+entry with the same system tool Claude Code itself uses for it. It reads the whole entry, keeps only the secrets of the plugins it gives that session, and drops the rest at
+once, your sign-in included. It never stores them in its own keychain entries or its database, never
+logs them, and never changes your entry. It hands them to that session's Claude Code in a private
+file in Moontors' folder for Claude Code, which goes when that run of the agent ends; one a crash
+left behind is deleted when the agent next starts.
+
 ### Deleting it
 
 - Deleting a session in Moontors deletes it from Moontors' database, and overwrites the space it
-  took there, so its text doesn't linger in the file. The backup copy from the latest update that
+  took there, so its text doesn't linger in the file. The files attached to its messages are deleted
+  with it; if the disk refuses, they go when the background service next starts. The backup copy from the latest update that
   changed the database may still hold it, until the next such update replaces that copy or you
   delete it. Where the agent can, deleting a session also deletes the agent's own copy, and
   Moontors says before you confirm whether it will. Gemini CLI also keeps your prompts in its
@@ -66,7 +88,8 @@ The agents also keep files of their own outside these folders. For example, Clau
   the folders listed above (on macOS, its preferences and saved window state too) and quits. It
   removes links to your own folders as links, never following them. It leaves your repositories'
   branches and Git's worktree records (step 3 below), the Codex sandbox accounts on Windows
-  (step 5) and files the agents keep for themselves (step 6).
+  (step 5) and files the agents keep for themselves (step 6), and the confirmation names what each
+  agent leaves.
 - To do it by hand instead, for example if Moontors can't start:
   1. Sign out of each provider in Moontors, then quit Moontors. The background service stops on
      its own once any running sessions finish.
@@ -126,8 +149,10 @@ privacy policies, and by the agent's own settings, including any usage data the 
 
 What Moontors gives an agent goes only to that agent, which may pass it on to its vendor as above:
 
-- what you type;
+- what you type, and the files you attach to a message;
 - the API key you gave Moontors for that provider, if you signed in with one;
+- with Claude Code, the secrets of the plugins it gives a session, as described under "Your own
+  agents' secrets";
 - your shell's environment (such as `PATH`), as your terminal would give it to the agent;
 - the choices you make for the session in Moontors: its folders, model, effort, fast mode,
   permission mode, output style, auto-compact threshold, switches, approved rules and sandbox

@@ -3,9 +3,11 @@
 Last updated: 11 October 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex and Gemini CLI) on your
-own computer. This policy says what Moontors, and its website moontors.com (see "The website"), do
-with your information. In short: Moontors itself collects nothing about you, keeps what it stores
-on your computer, and gives the agents only what they need to do your work, listed below.
+own computer, with a phone app for Android that shows and works with the same sessions (see "The
+phone app"). This policy says what Moontors, its phone app, and its website moontors.com (see "The
+website") do with your information. In short: Moontors itself collects nothing about you, keeps
+what it stores on your computer and your phone, and gives the agents only what they need to do your
+work, listed below.
 
 ## What Moontors keeps, and where
 
@@ -34,7 +36,12 @@ internet".
     when the background service next starts;
   - for a Claude Code session given a plugin with secrets, a private file holding them (see "Your
     own agents' secrets" below), deleted when that run of the agent ends;
-  - the worktrees Moontors makes for sessions that work on their own branch.
+  - the worktrees Moontors makes for sessions that work on their own branch;
+  - the phones you paired: each one's name, whether it's an iPhone or Android, when it paired and
+    last connected, and a hash of the token it signs in with, never the token itself; and in a
+    `phone` folder, the private key and certificate your computer proves itself to your phones
+    with, and a random id your phones know it by, made the first time you open a pairing window
+    and replaced by **Forget all phones…**.
 - **In your operating system's keychain** (the macOS Keychain, Windows Credential Manager, or your
   Linux desktop's secret store; where none runs, the kernel's keyring, which forgets it at
   restart):
@@ -79,6 +86,13 @@ left behind is deleted when the agent next starts.
   Moontors says before you confirm whether it will. Gemini CLI also keeps your prompts in its
   project's own log, which deleting a session leaves in place. Neither reaches what the agent's
   vendor keeps on its own servers.
+- Removing a phone in **Phones** deletes Moontors' record of it, and disconnects it; a phone that's
+  connected then forgets your computer, and the drafts it kept. **Forget all phones…** removes
+  every phone and also replaces your computer's key, so no phone paired before can reach it. A
+  phone that isn't connected at the time may keep your computer's details until you choose
+  **Forget this computer** on it, or uninstall the app. The backup copy from the latest update that
+  changed the database may still hold a removed phone's record, until the next such update replaces
+  that copy or you delete it.
 - Signing out of a provider in Moontors removes the key you gave it from the keychain, and signs
   the agent out, which removes the sign-in it kept (such as Claude Code's keychain entry, Codex's
   `auth.json`, or Gemini CLI's credentials and its record of which Google account signed in).
@@ -169,6 +183,75 @@ What Moontors gives an agent goes only to that agent, which may pass it on to it
 
 Moontors receives from the agents only what they report to it (their replies, models, usage and
 limits), and keeps it on your computer.
+
+## The phone app
+
+The phone app shows the sessions Moontors runs on your computer, and works with them from your
+phone. It pairs with your computer, and what you do in it goes only there: there's no account, no
+Moontors server and nothing in between.
+
+**See a demo**, before pairing, opens sample sessions on a pretend computer inside the app. Nothing
+in the demo is sent anywhere unless you share it yourself, and what you type in it is gone once you
+leave it; its photos and files are samples of its own, never yours.
+
+### What the phone keeps, and where
+
+All of it in the app's own storage on the phone, which no other app can read:
+
+- the computers it's paired with: each one's name and id, its addresses and port, the fingerprint
+  of its key, the phone's own id there, and the token the phone signs in with, in Android's
+  encrypted storage for the app, whose key the Android Keystore holds; with them, a random value in
+  the app's files that marks this install;
+- the messages you've typed but not sent, in a file, each until you send it or its session goes,
+  and all of them once the phone is no longer paired;
+- copies of the photos and files you pick to send, in the app's cache, each until it leaves the
+  message, sent or taken off, or its session goes, and any still there when the app next starts;
+  and of a transcript you export, until you export another or the app next starts.
+
+Android's backup is off for the app, and a move to a new phone with Android's own transfer carries
+none of these.
+
+### What the phone sends, and to whom
+
+What's yours goes only to the computer it paired with, and to any app you choose when you share an
+exported transcript:
+
+- **When pairing,** the phone's name (as set in Android's settings, else its model) and that it's
+  an Android phone, with the secret the scanned code holds or, by the six-digit code, a proof that
+  it knows the code; the six-digit code itself is never sent.
+- **Once paired,** what you do in the app: the requests to show and act on your sessions, your
+  messages, answers and choices, the photos and files you send, and the token it signs in with.
+  Your computer's Moontors then handles them as the rest of this policy says, which includes giving
+  your messages and files to the session's agent.
+
+The link is TLS 1.3, pinned to your computer's own key, which the phone learns while pairing, so
+nothing between the two can read it or stand in for your computer. The phone connects to your
+computer's IP addresses, on your local network, through Tailscale, or through another VPN your
+computer is on, and to find it on the local network, it looks for Moontors there (mDNS); the phone
+announces nothing itself.
+
+- **The camera** is used only to scan the pairing code, which the app reads on the phone itself.
+  No picture is kept or sent, and only the code it reads is used.
+- **Photos and files** are read only when you choose them, through Android's own photo and file
+  pickers, and sent only to your computer. A photo goes unchanged, as Android's picker hands it
+  over, with any details its file still holds.
+- **Links** open in your phone's browser.
+- **Google Play,** where the app comes from, gives Moontors' developer counts of its installs, and
+  reports of the app's crashes and freezes (ANRs) from phones whose owners let Android share usage
+  and diagnostics with Google. Those come from Google, under its own privacy policy; nothing of them
+  comes from the app.
+
+### Your computer's side
+
+While a pairing window is open, or any phone is paired, Moontors listens for your phones on your
+computer (port 47610, or another free port if that's taken). It takes connections only from a
+network your computer is directly on (such as your local network, or another VPN's), from your
+Tailscale network, or from the computer itself. It also announces itself
+on your local network (mDNS, Bonjour on a Mac), under a random name, and under your computer's
+name while a pairing window is open, so the phone can find it.
+
+To unpair, see "Deleting it": removing the app from the phone deletes everything the phone keeps,
+and removing the phone in Moontors deletes your computer's record of it.
 
 ## The website
 

@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <a href="https://moontors.com"><img src=".github/assets/hero.webp" alt="Several agents at work on the Moontors board at once." width="100%"></a>
+  <a href="https://moontors.com"><picture><source type="image/avif" srcset=".github/assets/hero.avif"><img src=".github/assets/hero.webp" alt="Several agents at work on the Moontors board at once." width="100%"></picture></a>
 </p>
 
 ---
@@ -44,6 +44,11 @@ working when the window is closed.
 - **Keeps working without you.** Sessions run in a background service, not in the window, so they
   carry on when you close it. While Moontors is open, a desktop notification tells you when a
   session needs you or runs into trouble.
+- **Your sessions on your phone.** The [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) pairs with Moontors on your computer
+  once, by scanning the code it shows or typing it, then shows the board and every session: follow
+  them, answer their questions and permission requests, and reply, away from your desk. It reaches
+  your computer on the same network or through Tailscale, with nothing in between. The iPhone app is
+  coming soon.
 - **You decide what agents may do.** Permission modes from Manual to Bypass, changed as you go,
   with Allow and Deny right in the transcript.
 - **A branch per task.** A session can work in its own git worktree and branch, with the files it
@@ -74,6 +79,9 @@ Moontors downloads and verifies each agent's own program the first time you use 
 want [git](https://git-scm.com): Moontors uses it for worktree sessions and diffs, and on Windows
 Claude Code needs [Git for Windows](https://gitforwindows.org).
 
+On your phone, get **[Moontors for Android](https://play.google.com/store/apps/details?id=com.moontors.mobile)** from Google Play, and pair it from **Phones**
+in Moontors on your computer. The iPhone app is coming soon.
+
 ### First launch
 
 - **macOS:** open the `.dmg` and drag Moontors to Applications. Until Moontors' macOS builds are
@@ -96,6 +104,8 @@ Claude Code needs [Git for Windows](https://gitforwindows.org).
 2. **Create a session:** pick a project folder, choose an agent and a model, and give it a task.
 3. **Follow along on the board.** Open any session to read its full transcript, answer its
    questions, or review its changes.
+4. **Take it with you, if you like:** choose **Phones**, then **Pair a phone**, and pair the
+   [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) by the code your computer shows.
 
 ## Updates
 
@@ -134,6 +144,11 @@ is free.
 **Can several agents work on the same repository?**
 Yes. Each session can work in its own git worktree and branch, so agents don't step on each other's
 changes, and you review and merge each branch as you would anyone's.
+
+**Is there a phone app?**
+Yes, for Android, on [Google Play](https://play.google.com/store/apps/details?id=com.moontors.mobile). It pairs with Moontors on your computer and works on
+the same sessions: the board, the transcripts, answering questions and permission requests, and
+replying. The iPhone app is coming soon.
 
 **Does Moontors see my code?**
 No. There are no Moontors servers. Each agent talks to its own vendor, to the services and MCP

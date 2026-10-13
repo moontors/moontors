@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Many agents. Every project. One board.</strong><br>
-  Run Claude Code, Codex and Gemini CLI side by side, across all your projects, on macOS, Windows and Linux. A free agentic development environment (ADE) that keeps all of them in view, and working in the background.
+  Run Claude Code, Codex and Gemini CLI side by side, across all your projects, on macOS, Windows and Linux. A free agentic development environment (ADE), built around your agents rather than your files, that keeps all of them in view and working in the background.
 </p>
 
 <p align="center">
@@ -53,8 +53,12 @@ working when the window is closed.
   with Allow and Deny right in the transcript.
 - **A branch per task.** A session can work in its own git worktree and branch, with the files it
   needs copied in, and archiving it asks before anything is removed.
-- **Review as you go.** A diff of the session's changes, and a file editor beside the agent that
-  never overwrites the agent's work, or yours.
+- **The Git view.** Each session's repository as a graph, every branch in a lane of its own and each
+  agent's commit the moment it lands. Check out, branch, merge, rebase, cherry-pick, tag, stash,
+  fetch, pull and push from right-click menus.
+- **Review as you go.** The session's changes hunk by hunk in the Git view, to stage, discard and
+  commit, and a file editor that never overwrites the agent's work, or yours, while the agent keeps
+  working.
 - **The agents' own commands.** Each agent's slash commands work in Moontors, apart from those
   that only make sense in a terminal, along with `/rewind`, `/compact`, side questions, subtasks,
   forks, `/export` and `@` file mentions.
@@ -76,8 +80,8 @@ Get the newest version from the **[latest release](https://github.com/moontors/m
 | Linux    | `Moontors-x86_64.AppImage`, or the `.deb` for Ubuntu and Debian          | x86-64 Linux with a desktop |
 
 Moontors downloads and verifies each agent's own program the first time you use it. You'll also
-want [git](https://git-scm.com): Moontors uses it for worktree sessions and diffs, and on Windows
-Claude Code needs [Git for Windows](https://gitforwindows.org).
+want [git](https://git-scm.com) 2.23 or later: Moontors uses it for the Git view and worktree
+sessions, and on Windows Claude Code needs [Git for Windows](https://gitforwindows.org).
 
 On your phone, get **[Moontors for Android](https://play.google.com/store/apps/details?id=com.moontors.mobile)** from Google Play, and pair it from **Phones**
 in Moontors on your computer. The iPhone app is coming soon.

@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 7 October 2026
+Last updated: 15 October 2026
 
 These terms are an agreement between you and the maker of Moontors ("we", "us") about your use of
 the Moontors desktop app ("Moontors"). By installing or using Moontors, you agree to them. If you
@@ -24,9 +24,9 @@ part. They are listed in the app's Third-party notices.
 
 ## Paid features
 
-Moontors is free today. We may add paid features later. If we do, the free features you have won't
-be taken away without notice, and anything paid will come with its own terms that you agree to
-first.
+Moontors is free today. We may add paid features later, and a feature that's free today may become
+part of a paid plan. If that happens, we'll say so in the app and in the release notes before it
+does, and anything paid will come with its own terms that you agree to first.
 
 ## The agents, and your accounts with their vendors
 

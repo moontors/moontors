@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <a href="https://moontors.com"><picture><source type="image/avif" srcset=".github/assets/hero.avif"><img src=".github/assets/hero.webp" alt="Several agents at work on the Moontors board at once." width="100%"></picture></a>
+  <a href="https://moontors.com"><picture><source type="image/avif" srcset=".github/assets/hero.avif"><img src=".github/assets/hero.webp" alt="Several agents at work on the Moontors board at once, and on a phone paired beside it." width="100%"></picture></a>
 </p>
 
 ---
@@ -41,6 +41,9 @@ working when the window is closed.
 
 - **Every session on one board.** Claude Code, Codex and Gemini CLI sessions side by side, each card
   showing its transcript live. Sort them into your own sections, and filter by project.
+- **Talk to agents as you would to people.** Reply to any row of a transcript, send while the agent
+  works, have the agent rephrase your draft first, and let your sessions message each other: a
+  Claude Code session can hand work to a Codex session and hear back.
 - **Keeps working without you.** Sessions run in a background service, not in the window, so they
   carry on when you close it. While Moontors is open, a desktop notification tells you when a
   session needs you or runs into trouble.
@@ -51,14 +54,19 @@ working when the window is closed.
   coming soon.
 - **You decide what agents may do.** Permission modes from Manual to Bypass, changed as you go,
   with Allow and Deny right in the transcript.
-- **A branch per task.** A session can work in its own git worktree and branch, with the files it
-  needs copied in, and archiving it asks before anything is removed.
+- **A worktree per task.** A session can work in its own git worktree, on a new branch if you name
+  one, with the files it needs copied in, and archiving it asks before anything is removed.
 - **The Git view.** Each session's repository as a graph, every branch in a lane of its own and each
-  agent's commit the moment it lands. Check out, branch, merge, rebase, cherry-pick, tag, stash,
-  fetch, pull and push from right-click menus.
+  agent's commit the moment it lands. Find a commit as you type, and see which commits git verified
+  as signed. Check out, branch, merge, rebase, cherry-pick, tag, stash, fetch, pull and push from
+  right-click menus.
+- **Every file at hand.** Files opens the session's folder as a tree beside an editor. Go to File
+  (Cmd+P, or Ctrl+P) finds a file by a few letters of its name, Find in Files searches and replaces
+  across the folder, right-click menus make, move, copy, rename and delete files, and images, PDFs
+  and more preview in their tab.
 - **Review as you go.** The session's changes hunk by hunk in the Git view, to stage, discard and
-  commit, and a file editor that never overwrites the agent's work, or yours, while the agent keeps
-  working.
+  commit, edits in the transcript coloured as the editor colours code, and a file editor that never
+  overwrites the agent's work, or yours, while the agent keeps working.
 - **The agents' own commands.** Each agent's slash commands work in Moontors, apart from those
   that only make sense in a terminal, along with `/rewind`, `/compact`, side questions, subtasks,
   forks, `/export` and `@` file mentions.
@@ -115,7 +123,8 @@ in Moontors on your computer. The iPhone app is coming soon.
 
 Moontors checks for a new version when it starts and every 4 hours, and downloads it in the
 background. When it's ready, Moontors offers **Restart to update**. Choose it when it suits you:
-Moontors waits for running work to finish, installs the update and reopens. To look at once, choose
+Moontors waits for running work to finish, installs the update and reopens. It says first if that
+ends a running terminal, and asks before it discards unsaved edits. To look at once, choose
 **Check for Updates…**: in the Moontors menu on macOS, and in Help on Windows and Linux.
 
 - The AppImage updates itself: it deletes the old file, then moves the new one into its place, so if
@@ -146,8 +155,9 @@ a ChatGPT plan or an OpenAI API key for Codex, and a Gemini API key for Gemini C
 is free.
 
 **Can several agents work on the same repository?**
-Yes. Each session can work in its own git worktree and branch, so agents don't step on each other's
-changes, and you review and merge each branch as you would anyone's.
+Yes. Each session can work in its own git worktree, on a branch of its own if you name one, so
+agents don't step on each other's changes, and you review and merge each branch as you would
+anyone's.
 
 **Is there a phone app?**
 Yes, for Android, on [Google Play](https://play.google.com/store/apps/details?id=com.moontors.mobile). It pairs with Moontors on your computer and works on

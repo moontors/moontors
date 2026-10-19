@@ -1,13 +1,13 @@
 # Privacy Policy
 
-Last updated: 11 October 2026
+Last updated: 19 October 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex and Gemini CLI) on your
-own computer, with a phone app for Android that shows and works with the same sessions (see "The
-phone app"). This policy says what Moontors, its phone app, and its website moontors.com (see "The
-website") do with your information. In short: Moontors itself collects nothing about you, keeps
-what it stores on your computer and your phone, and gives the agents only what they need to do your
-work, listed below.
+own computer, with a phone app for Android and iPhone that shows and works with the same sessions
+(see "The phone app"). This policy says what Moontors, its phone app, and its website moontors.com
+(see "The website") do with your information. In short: Moontors itself collects nothing about you,
+keeps what it stores on your computer and your phone, and gives the agents only what they need to
+do your work, listed below.
 
 ## What Moontors keeps, and where
 
@@ -56,7 +56,10 @@ internet".
 - **In an update cache folder** (`~/Library/Caches/moontors-updater` on macOS,
   `%LOCALAPPDATA%\moontors-updater` on Windows, and `~/.cache/moontors-updater` on Linux, or under
   `$XDG_CACHE_HOME`): the last downloaded update, until the next one replaces it, and on Windows the
-  last installer.
+  last installer. On macOS, the system's updater also keeps a record of the last install, its log
+  with the app's path and its last request, in `~/Library/Caches/com.moontors.app.ShipIt`, and
+  macOS's cache of its exchange with Moontors' own updater, which hands it the download, in
+  `~/Library/Caches/com.moontors.app`.
 - **In your repositories:** the branches Moontors makes for worktree sessions, and Git's own
   record of each worktree.
 - **Files you open in Moontors** are read and saved where they already are.
@@ -107,7 +110,7 @@ left behind is deleted when the agent next starts.
 - To do it by hand instead, for example if Moontors can't start:
   1. Sign out of each provider in Moontors, then quit Moontors. The background service stops on
      its own once any running sessions finish.
-  2. Delete the `.moontors` folder, the app's own folder and the update cache folder listed above,
+  2. Delete the `.moontors` folder, the app's own folder and the update cache folders listed above,
      and on macOS also `~/Library/Preferences/com.moontors.app.plist` and
      `~/Library/Saved Application State/com.moontors.app.savedState`.
      Deleting `.moontors` also deletes the worktrees, with any changes in them that aren't
@@ -200,8 +203,8 @@ All of it in the app's own storage on the phone, which no other app can read:
 
 - the computers it's paired with: each one's name and id, its addresses and port, the fingerprint
   of its key, the phone's own id there, and the token the phone signs in with, in Android's
-  encrypted storage for the app, whose key the Android Keystore holds; with them, a random value in
-  the app's files that marks this install;
+  encrypted storage for the app, whose key the Android Keystore holds, or in an iPhone's keychain,
+  kept to that iPhone alone; with them, a random value in the app's files that marks this install;
 - the messages you've typed but not sent, in a file, each until you send it or its session goes,
   and all of them once the phone is no longer paired;
 - copies of the photos and files you pick to send, in the app's cache, each until it leaves the
@@ -209,37 +212,50 @@ All of it in the app's own storage on the phone, which no other app can read:
   and of a transcript you export, until you export another or the app next starts.
 
 Android's backup is off for the app, and a move to a new phone with Android's own transfer carries
-none of these.
+none of these. On an iPhone, the paired computers go into its backups locked to that iPhone:
+restored onto it they come back, and no other iPhone can read them, so they never move to a new one.
+The app's other files go into your iPhone's backups as any app's do: the messages you've typed but
+not sent, and the random value that marks the install, which pairs with nothing on its own. The
+copies in the app's cache don't.
 
 ### What the phone sends, and to whom
 
 What's yours goes only to the computer it paired with, and to any app you choose when you share an
 exported transcript:
 
-- **When pairing,** the phone's name (as set in Android's settings, else its model) and that it's
-  an Android phone, with the secret the scanned code holds or, by the six-digit code, a proof that
-  it knows the code; the six-digit code itself is never sent.
+- **When pairing,** the phone's name and whether it's an Android phone or an iPhone (an Android
+  phone's name as set in its settings, else its model; an iPhone, which doesn't give apps its name,
+  as "iPhone"), with the secret the scanned code holds or, by the six-digit code, a proof that it
+  knows the code; the six-digit code itself is never sent.
 - **Once paired,** what you do in the app: the requests to show and act on your sessions, your
   messages, answers and choices, the photos and files you send, and the token it signs in with.
   Your computer's Moontors then handles them as the rest of this policy says, which includes giving
-  your messages and files to the session's agent.
+  your messages and files to the session's agent, which sends them to its vendor under your own
+  account with them (see "What connects to the internet"). Moontors itself sends them nowhere
+  else.
 
 The link is TLS 1.3, pinned to your computer's own key, which the phone learns while pairing, so
 nothing between the two can read it or stand in for your computer. The phone connects to your
 computer's IP addresses, on your local network, through Tailscale, or through another VPN your
-computer is on, and to find it on the local network, it looks for Moontors there (mDNS); the phone
-announces nothing itself.
+computer is on, and to find it on the local network, it looks for Moontors there (mDNS), which an
+iPhone asks you to allow first; the phone announces nothing itself.
 
 - **The camera** is used only to scan the pairing code, which the app reads on the phone itself.
   No picture is kept or sent, and only the code it reads is used.
-- **Photos and files** are read only when you choose them, through Android's own photo and file
-  pickers, and sent only to your computer. A photo goes unchanged, as Android's picker hands it
-  over, with any details its file still holds.
+- **Photos and files** are read only when you choose them, through your phone's own photo and file
+  pickers, and sent only to your computer. A photo goes unchanged, as the picker hands it over, with
+  any details its file still holds; on an iPhone with iOS 17 or later, the picker's own Options say
+  whether that includes where it was taken.
 - **Links** open in your phone's browser.
-- **Google Play,** where the app comes from, gives Moontors' developer counts of its installs, and
-  reports of the app's crashes and freezes (ANRs) from phones whose owners let Android share usage
-  and diagnostics with Google. Those come from Google, under its own privacy policy; nothing of them
-  comes from the app.
+- **Google Play,** where the Android app comes from, gives Moontors' developer counts of its
+  installs, and reports of the app's crashes and freezes (ANRs) from phones whose owners let Android
+  share usage and diagnostics with Google. Those come from Google, under its own privacy policy;
+  nothing of them comes from the app.
+- **The App Store,** where the iPhone app comes from, gives Moontors' developer counts of its
+  downloads; counts of its sessions and active devices, and reports of the app's crashes and hangs,
+  from iPhones whose owners chose to share analytics with app developers; and the ratings and
+  reviews posted there. Those come from Apple, under its own privacy policy; nothing of them comes
+  from the app.
 
 ### Your computer's side
 

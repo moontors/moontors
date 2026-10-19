@@ -47,11 +47,10 @@ working when the window is closed.
 - **Keeps working without you.** Sessions run in a background service, not in the window, so they
   carry on when you close it. While Moontors is open, a desktop notification tells you when a
   session needs you or runs into trouble.
-- **Your sessions on your phone.** The [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) pairs with Moontors on your computer
+- **Your sessions on your phone.** The [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) or the [iPhone app](https://apps.apple.com/app/id6824488067) pairs with Moontors on your computer
   once, by scanning the code it shows or typing it, then shows the board and every session: follow
   them, answer their questions and permission requests, and reply, away from your desk. It reaches
-  your computer on the same network or through Tailscale, with nothing in between. The iPhone app is
-  coming soon.
+  your computer on the same network or through Tailscale, with nothing in between.
 - **You decide what agents may do.** Permission modes from Manual to Bypass, changed as you go,
   with Allow and Deny right in the transcript.
 - **A worktree per task.** A session can work in its own git worktree, on a new branch if you name
@@ -91,14 +90,12 @@ Moontors downloads and verifies each agent's own program the first time you use 
 want [git](https://git-scm.com) 2.23 or later: Moontors uses it for the Git view and worktree
 sessions, and on Windows Claude Code needs [Git for Windows](https://gitforwindows.org).
 
-On your phone, get **[Moontors for Android](https://play.google.com/store/apps/details?id=com.moontors.mobile)** from Google Play, and pair it from **Phones**
-in Moontors on your computer. The iPhone app is coming soon.
+On your phone, get **[Moontors for Android](https://play.google.com/store/apps/details?id=com.moontors.mobile)** from Google Play or **[Moontors for iPhone](https://apps.apple.com/app/id6824488067)** from the App Store, and pair it from **Phones**
+in Moontors on your computer.
 
 ### First launch
 
-- **macOS:** open the `.dmg` and drag Moontors to Applications. Until Moontors' macOS builds are
-  signed, macOS says it can't check the app the first time you open it: open **System Settings ›
-  Privacy & Security**, and choose **Open Anyway** for Moontors.
+- **macOS:** open the `.dmg` and drag Moontors to Applications.
 - **Windows:** run the installer. Until Moontors' Windows builds are signed, SmartScreen may warn
   about an unrecognized app: choose **More info**, then **Run anyway**. Windows 11's Smart App
   Control, when it's on, blocks unsigned apps outright.
@@ -117,7 +114,7 @@ in Moontors on your computer. The iPhone app is coming soon.
 3. **Follow along on the board.** Open any session to read its full transcript, answer its
    questions, or review its changes.
 4. **Take it with you, if you like:** choose **Phones**, then **Pair a phone**, and pair the
-   [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) by the code your computer shows.
+   [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) or the [iPhone app](https://apps.apple.com/app/id6824488067) by the code your computer shows.
 
 ## Updates
 
@@ -131,8 +128,6 @@ ends a running terminal, and asks before it discards unsaved edits. To look at o
   that move fails (a full disk, or the machine stopping in between), download it again.
 - The `.deb` asks for your password to update. It isn't signed, so only the download's checksum is
   checked, and if a package it needs is missing, apt may add or remove packages to fix that.
-- Until Moontors' macOS builds are signed, macOS offers **Download** instead, which opens the new
-  version's download page.
 
 ## Questions
 
@@ -160,9 +155,9 @@ agents don't step on each other's changes, and you review and merge each branch 
 anyone's.
 
 **Is there a phone app?**
-Yes, for Android, on [Google Play](https://play.google.com/store/apps/details?id=com.moontors.mobile). It pairs with Moontors on your computer and works on
+Yes, for Android, on [Google Play](https://play.google.com/store/apps/details?id=com.moontors.mobile), and for the iPhone, on the [App Store](https://apps.apple.com/app/id6824488067). It pairs with Moontors on your computer and works on
 the same sessions: the board, the transcripts, answering questions and permission requests, and
-replying. The iPhone app is coming soon.
+replying.
 
 **Does Moontors see my code?**
 No. There are no Moontors servers. Each agent talks to its own vendor, to the services and MCP

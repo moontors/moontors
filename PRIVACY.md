@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 19 October 2026
+Last updated: 23 October 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex and Gemini CLI) on your
 own computer, with a phone app for Android and iPhone that shows and works with the same sessions
@@ -33,7 +33,8 @@ internet".
     sessions' history, and an old one is deleted once no session uses it;
   - the files you attach to messages. A file you send is kept with its session, copied to a fork of
     it, and deleted with the session. A file you add but don't send is deleted after an hour, or
-    when the background service next starts;
+    when the background service next starts. An image an agent makes in a session, as Codex makes
+    one, is kept with the session the same way, so you can see it on your computer and your phone;
   - for a Claude Code session given a plugin with secrets, a private file holding them (see "Your
     own agents' secrets" below), deleted when that run of the agent ends;
   - the worktrees Moontors makes for sessions that work on their own branch;
@@ -181,6 +182,12 @@ What Moontors gives an agent goes only to that agent, which may pass it on to it
   with your next prompt to it;
 - short requests, with no conversation, for the models your account can use and its usage limits,
   so Moontors can show them;
+- a report on a session that you send to OpenAI with Codex's `/feedback`: what it's about and your
+  words, with Codex's own tags (such as your ChatGPT user and account IDs, the session's model and
+  settings, and Codex's version), and, unless you clear the box, Codex's logs and diagnostics and
+  that session's whole conversation, the agent's own review's included, which Codex uploads from
+  your account as its own `/feedback` does. Moontors asks Codex to send one only when you press
+  Send, after saying what goes;
 - Moontors' name and version, which Codex and Gemini CLI receive when Moontors starts them. Codex
   names Moontors to OpenAI as the app it runs in.
 

@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 23 October 2026
+Last updated: 27 October 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex and Gemini CLI) on your
 own computer, with a phone app for Android and iPhone that shows and works with the same sessions
@@ -21,7 +21,8 @@ internet".
     on the new version's first start, and keeps that backup beside it
     (`moontors.db.v<number>-<time>.bak`), in place of any copy an earlier update kept;
   - the background service's log;
-  - the agents' own programs, which Moontors downloads;
+  - the agents' own programs, which Moontors downloads, only the version it runs of each: an older
+    one is deleted each time the background service starts;
   - each agent's folder for the sessions Moontors runs. The agent keeps its own files there, and
     its sign-in when you sign in through Moontors. Moontors also puts a copy of your own
     configuration for that agent there (such as its settings, your MCP servers and their
@@ -46,7 +47,10 @@ internet".
 - **In your operating system's keychain** (the macOS Keychain, Windows Credential Manager, or your
   Linux desktop's secret store; where none runs, the kernel's keyring, which forgets it at
   restart):
-  - an API key you give Moontors, until you sign out of that provider in Moontors;
+  - an API key you give Moontors, or the cloud sign-in you choose for Claude Code or Gemini CLI,
+    which keep none of their own (an AWS profile's name or keys, a Bedrock API key, a Google Cloud
+    credential file's location or key, or a Microsoft Foundry key or token, with the region,
+    project or resource it goes with), until you sign out of that provider in Moontors;
   - an agent's sign-in made through Moontors, when the agent keeps its sign-in there (as Claude
     Code does on macOS).
 - **In the app's own folder** (`~/Library/Application Support/Moontors` on macOS,
@@ -97,9 +101,10 @@ left behind is deleted when the agent next starts.
   **Forget this computer** on it, or uninstall the app. The backup copy from the latest update that
   changed the database may still hold a removed phone's record, until the next such update replaces
   that copy or you delete it.
-- Signing out of a provider in Moontors removes the key you gave it from the keychain, and signs
-  the agent out, which removes the sign-in it kept (such as Claude Code's keychain entry, Codex's
-  `auth.json`, or Gemini CLI's credentials and its record of which Google account signed in).
+- Signing out of a provider in Moontors removes the API key or cloud credentials you gave it from
+  the keychain, and signs the agent out, which removes the sign-in it kept (such as Claude Code's
+  keychain entry, Codex's `auth.json`, or Gemini CLI's credentials and its record of which Google
+  account signed in).
 - To remove everything Moontors keeps, choose **Help → Remove Moontors' Data…** in Moontors. It
   lists what it will delete first, including any worktree with uncommitted changes. Then it signs
   out of each provider, removes Moontors' keychain entries, stops the background service, deletes
@@ -121,11 +126,11 @@ left behind is deleted when the agent next starts.
   3. In each repository you used, run `git worktree prune`, then delete the branches you no
      longer want.
   4. Signing out removes Moontors' keychain entries. If you couldn't sign out first: the entry
-     named `moontors` holds the API keys you gave Moontors (one for each provider), and Claude
-     Code's sign-in through Moontors is an entry named `Claude Code-credentials-` followed by a
-     short code, one for each Claude configuration folder. The entry named exactly
-     `Claude Code-credentials` is your own Claude Code's: keep it, and leave alone any entries
-     other apps made.
+     named `moontors` holds the API keys you gave Moontors, and the cloud sign-ins you chose for
+     Claude Code or Gemini CLI (one for each provider), and Claude Code's sign-in through Moontors
+     is an entry named `Claude Code-credentials-` followed by a short code, one for each Claude
+     configuration folder. The entry named exactly `Claude Code-credentials` is your own Claude
+     Code's: keep it, and leave alone any entries other apps made.
   5. If you ran Codex's Windows sandbox setup, Codex created local user accounts
      (`CodexSandboxOffline`, `CodexSandboxOnline`), a group (`CodexSandboxUsers`) and firewall
      rules (`codex_sandbox_offline_*`) on that computer. To remove them, run PowerShell as an
@@ -168,7 +173,7 @@ privacy policies, and by the agent's own settings, including any usage data the 
 What Moontors gives an agent goes only to that agent, which may pass it on to its vendor as above:
 
 - what you type, and the files you attach to a message;
-- the API key you gave Moontors for that provider, if you signed in with one;
+- the API key or cloud credentials you gave Moontors for that provider, if you signed in with them;
 - with Claude Code, the secrets of the plugins it gives a session, as described under "Your own
   agents' secrets";
 - your shell's environment (such as `PATH`), as your terminal would give it to the agent;
@@ -200,8 +205,8 @@ The phone app shows the sessions Moontors runs on your computer, and works with 
 phone. It pairs with your computer, and what you do in it goes only there: there's no account, no
 Moontors server and nothing in between.
 
-**See a demo**, before pairing, opens sample sessions on a pretend computer inside the app. Nothing
-in the demo is sent anywhere unless you share it yourself, and what you type in it is gone once you
+**See a demo**, before pairing, opens sample sessions inside the app, as your computer would run
+them; nothing in it runs. Nothing in the demo is sent anywhere unless you share it yourself, and what you type in it is gone once you
 leave it; its photos and files are samples of its own, never yours.
 
 ### What the phone keeps, and where
@@ -214,9 +219,9 @@ All of it in the app's own storage on the phone, which no other app can read:
   kept to that iPhone alone; with them, a random value in the app's files that marks this install;
 - the messages you've typed but not sent, in a file, each until you send it or its session goes,
   and all of them once the phone is no longer paired;
-- copies of the photos and files you pick to send, in the app's cache, each until it leaves the
-  message, sent or taken off, or its session goes, and any still there when the app next starts;
-  and of a transcript you export, until you export another or the app next starts.
+- copies of the photos and files you pick or paste to send, in the app's cache, each until it
+  leaves the message, sent or taken off, or its session goes, and any still there when the app next
+  starts; and of a transcript you export, until you export another or the app next starts.
 
 Android's backup is off for the app, and a move to a new phone with Android's own transfer carries
 none of these. On an iPhone, the paired computers go into its backups locked to that iPhone:

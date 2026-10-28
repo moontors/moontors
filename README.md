@@ -40,10 +40,12 @@ working when the window is closed.
 ## Features
 
 - **Every session on one board.** Claude Code, Codex and Gemini CLI sessions side by side, each card
-  showing its transcript live. Sort them into your own sections, and filter by project.
+  showing its transcript live. Sort them into your own sections; the header counts the sessions
+  running, waiting for you, with an action denied or an error, and a click on one goes to the next.
 - **Talk to agents as you would to people.** Reply to any row of a transcript, send while the agent
-  works, have the agent rephrase your draft first, and let your sessions message each other: a
-  Claude Code session can hand work to a Codex session and hear back.
+  works, what it can't take yet waiting in the session's queue, have the agent rephrase your draft
+  first, and let your sessions message each other: a Claude Code session can hand work to a Codex
+  session and hear back.
 - **Keeps working without you.** Sessions run in a background service, not in the window, so they
   carry on when you close it. While Moontors is open, a desktop notification tells you when a
   session needs you or runs into trouble.
@@ -71,7 +73,8 @@ working when the window is closed.
   forks, `/export` and `@` file mentions.
 - **Your setup, untouched.** Your agents' settings, MCP servers, skills and commands reach
   Moontors' sessions, and Moontors never writes your own configuration files.
-- **Usage at a glance.** A context meter on every card, token usage, and your account's limits.
+- **Usage at a glance.** A context meter on every card, token usage, and your account's limits,
+  with a ring by Accounts for each one near its end.
 - **Private by design.** No Moontors account, no telemetry, no tracking. Moontors keeps your
   sessions on your computer, and each agent talks to its own vendor, to the services and MCP servers you
   set it up with, and to any site its own tools reach, just as it would in your terminal.
@@ -107,9 +110,10 @@ in Moontors on your computer.
 
 ## Getting started
 
-1. **Sign in to a provider:** with your Claude or ChatGPT account in the browser, or with an API
-   key, which Moontors keeps in your system's keychain. Gemini CLI takes a Gemini API key, as
-   Google doesn't let personal accounts sign in to it through the browser.
+1. **Sign in to a provider:** with your Claude or ChatGPT account in the browser, with an API key,
+   which Moontors keeps in your system's keychain, or through Amazon Bedrock, Google Cloud's Vertex
+   AI or Microsoft Foundry where the agent offers it. Gemini CLI takes a Gemini API key or Vertex
+   AI, as Google doesn't let personal accounts sign in to it through the browser.
 2. **Create a session:** pick a project folder, choose an agent and a model, and give it a task.
 3. **Follow along on the board.** Open any session to read its full transcript, answer its
    questions, or review its changes.
@@ -142,12 +146,13 @@ own account and using your own settings, MCP servers and skills, with a desktop 
 
 **Is Moontors free?**
 Yes. Moontors is free to use, with no account. You use your own plan or API key with each agent's
-vendor.
+vendor, or a cloud that runs the agent.
 
 **What do I need to use it?**
-An account with the agent's vendor: a Claude subscription or an Anthropic API key for Claude Code,
-a ChatGPT plan or an OpenAI API key for Codex, and a Gemini API key for Gemini CLI. Moontors itself
-is free.
+An account with the agent's vendor, or a cloud that runs it: a Claude subscription or an Anthropic
+API key for Claude Code, a ChatGPT plan or an OpenAI API key for Codex, and a Gemini API key for
+Gemini CLI; or Amazon Bedrock for Claude Code and Codex, Google Cloud's Vertex AI for Claude Code
+and Gemini CLI, and Microsoft Foundry for Claude Code. Moontors itself is free.
 
 **Can several agents work on the same repository?**
 Yes. Each session can work in its own git worktree, on a branch of its own if you name one, so

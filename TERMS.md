@@ -1,15 +1,16 @@
 # Terms of Use
 
-Last updated: 15 October 2026
+Last updated: 25 October 2026
 
 These terms are an agreement between you and the maker of Moontors ("we", "us") about your use of
-the Moontors desktop app ("Moontors"). By installing or using Moontors, you agree to them. If you
-don't agree, don't use Moontors.
+the Moontors desktop app and the Moontors apps for iPhone and Android ("Moontors"). By installing or
+using Moontors, you agree to them. If you don't agree, don't use Moontors.
 
 ## Your license
 
 Moontors is free to use today. We give you a personal, non-exclusive, non-transferable license to
-install and use Moontors on computers you use, for your own work, personal or commercial.
+install and use Moontors on computers and phones you use, for your own work, personal or
+commercial.
 
 You may not:
 
@@ -20,7 +21,8 @@ You may not:
 - remove or change its copyright notices.
 
 Moontors includes open-source software, each part under its own license, which applies to that
-part. They are listed in the app's Third-party notices.
+part. They are listed in the desktop app's Third-party notices, and on Moontors' site, the phone
+apps' among them.
 
 ## Paid features
 
@@ -58,10 +60,11 @@ excluded, it is limited to the amount you paid us for Moontors, which today is n
 
 ## Updates and changes
 
-Moontors checks GitHub for a new version when it starts and every 4 hours; there's no setting to
-turn this off. Where it can install a new version itself, it downloads it in the background and
+The desktop app checks GitHub for a new version when it starts and every 4 hours; there's no setting
+to turn this off. Where it can install a new version itself, it downloads it in the background and
 installs it when you choose; where it can't, it offers the version's download page instead. Its
-Privacy Policy says what these checks send.
+Privacy Policy says what these checks send. The phone apps update through Google Play and the App
+Store.
 
 We may change these terms; the date at the top changes when we do. Continuing to use Moontors
 after a change means you accept it.

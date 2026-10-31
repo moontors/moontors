@@ -52,7 +52,8 @@ working when the window is closed.
 - **Your sessions on your phone.** The [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) or the [iPhone app](https://apps.apple.com/app/id6824488067) pairs with Moontors on your computer
   once, by scanning the code it shows or typing it, then shows the board and every session: follow
   them, answer their questions and permission requests, and reply, away from your desk. It reaches
-  your computer on the same network or through Tailscale, with nothing in between.
+  your computer directly, on the same network or through Tailscale, or, with Moontors Pro, from
+  anywhere through Moontors' relay, which passes its encrypted link on without reading it.
 - **You decide what agents may do.** Permission modes from Manual to Bypass, changed as you go,
   with Allow and Deny right in the transcript.
 - **A worktree per task.** A session can work in its own git worktree, on a new branch if you name
@@ -74,8 +75,8 @@ working when the window is closed.
 - **Your setup, untouched.** Your agents' settings, MCP servers, skills and commands reach
   Moontors' sessions, and Moontors never writes your own configuration files.
 - **Usage at a glance.** A context meter on every card, token usage, and your account's limits,
-  with a ring by Accounts for each one near its end.
-- **Private by design.** No Moontors account, no telemetry, no tracking. Moontors keeps your
+  with a ring by Profile for each one near its end.
+- **Private by design.** No Moontors account needed, no telemetry, no tracking. Moontors keeps your
   sessions on your computer, and each agent talks to its own vendor, to the services and MCP servers you
   set it up with, and to any site its own tools reach, just as it would in your terminal.
 
@@ -146,7 +147,9 @@ own account and using your own settings, MCP servers and skills, with a desktop 
 
 **Is Moontors free?**
 Yes. Moontors is free to use, with no account. You use your own plan or API key with each agent's
-vendor, or a cloud that runs the agent.
+vendor, or a cloud that runs the agent. Pro adds your phone's notifications and your phone
+reaching your computer from anywhere, for a Moontors account (see
+[Pricing](https://moontors.com/#pricing)).
 
 **What do I need to use it?**
 An account with the agent's vendor, or a cloud that runs it: a Claude subscription or an Anthropic
@@ -165,9 +168,11 @@ the same sessions: the board, the transcripts, answering questions and permissio
 replying.
 
 **Does Moontors see my code?**
-No. There are no Moontors servers. Each agent talks to its own vendor, to the services and MCP
-servers you set it up with, and to any site its own tools reach, as it would in your terminal, and
-Moontors keeps your sessions on your computer.
+No. Each agent talks to its own vendor, to the services and MCP servers you set it up with, and to
+any site its own tools reach, as it would in your terminal, and Moontors keeps your sessions on your
+computer. Moontors' server holds only what an optional Moontors account needs, never your code or
+your sessions: your phone's link through its relay, and its notifications, with Moontors Pro, are
+encrypted so the server can't read them.
 
 ## Feedback and support
 

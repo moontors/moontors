@@ -1,13 +1,16 @@
 # Privacy Policy
 
-Last updated: 27 October 2026
+Last updated: 31 October 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex and Gemini CLI) on your
 own computer, with a phone app for Android and iPhone that shows and works with the same sessions
 (see "The phone app"). This policy says what Moontors, its phone app, and its website moontors.com
-(see "The website") do with your information. In short: Moontors itself collects nothing about you,
-keeps what it stores on your computer and your phone, and gives the agents only what they need to
-do your work, listed below.
+(see "The website") do with your information. In short: without a Moontors account, Moontors
+collects nothing about you; it keeps what it stores on your computer and your phone, and gives the
+agents only what they need to do your work, listed below. A Moontors account is yours to make or
+not: Moontors works without one, and one keeps your email, how you sign in and, if your plan gives
+push or reaching your computer from anywhere, your phones' push tokens and your computers' and
+phones' names (see "Your Moontors account").
 
 ## What Moontors keeps, and where
 
@@ -43,7 +46,14 @@ internet".
     last connected, and a hash of the token it signs in with, never the token itself; and in a
     `phone` folder, the private key and certificate your computer proves itself to your phones
     with, and a random id your phones know it by, made the first time you open a pairing window
-    and replaced by **Forget all phones…**.
+    and replaced by **Forget all phones…**;
+  - if your Moontors account's plan gives push or reaching your computer from anywhere, in the same
+    database: this computer as the relay knows it (the account it registered under, the id
+    Moontors' server gave it and its relay's address), until **Forget all phones…** or the server
+    removes it, and in another's place once it registers under another account; and,
+    until the server has taken them, which phones were unpaired, by the id your computer gave each,
+    and that every phone was forgotten, so the server drops their push tokens and relay credentials
+    even after a restart.
 - **In your operating system's keychain** (the macOS Keychain, Windows Credential Manager, or your
   Linux desktop's secret store; where none runs, the kernel's keyring, which forgets it at
   restart):
@@ -52,7 +62,11 @@ internet".
     credential file's location or key, or a Microsoft Foundry key or token, with the region,
     project or resource it goes with), until you sign out of that provider in Moontors;
   - an agent's sign-in made through Moontors, when the agent keeps its sign-in there (as Claude
-    Code does on macOS).
+    Code does on macOS);
+  - your Moontors account's sign-in on this computer, if you signed in: the server's token for it,
+    and the account as it was last read (its id, email, sign-in methods, plan and what the plan
+    gives, its Pro subscription's state, monthly or yearly, when it renews or ends and until when
+    its first payment may be refunded, and whether Pro is on sale for it), until you sign out.
 - **In the app's own folder** (`~/Library/Application Support/Moontors` on macOS,
   `%APPDATA%\Moontors` on Windows, and `~/.config/Moontors` on Linux, or under `$XDG_CONFIG_HOME`):
   the window's preferences, the session last shown, and the caches the app's window keeps. On
@@ -101,21 +115,25 @@ left behind is deleted when the agent next starts.
   **Forget this computer** on it, or uninstall the app. The backup copy from the latest update that
   changed the database may still hold a removed phone's record, until the next such update replaces
   that copy or you delete it.
+- **Sign out**, on **Profile**'s **Account** tab in Moontors, ends this computer's sign-in at
+  Moontors' server and removes it from the keychain, and **Delete account…** there deletes the
+  account from the server (see "Your Moontors account").
 - Signing out of a provider in Moontors removes the API key or cloud credentials you gave it from
   the keychain, and signs the agent out, which removes the sign-in it kept (such as Claude Code's
   keychain entry, Codex's `auth.json`, or Gemini CLI's credentials and its record of which Google
   account signed in).
 - To remove everything Moontors keeps, choose **Help → Remove Moontors' Data…** in Moontors. It
   lists what it will delete first, including any worktree with uncommitted changes. Then it signs
-  out of each provider, removes Moontors' keychain entries, stops the background service, deletes
-  the folders listed above (on macOS, its preferences and saved window state too) and quits. It
-  removes links to your own folders as links, never following them. It leaves your repositories'
-  branches and Git's worktree records (step 3 below), the Codex sandbox accounts on Windows
-  (step 5) and files the agents keep for themselves (step 6), and the confirmation names what each
-  agent leaves.
+  out of each provider and of your Moontors account, removes Moontors' keychain entries, stops the
+  background service, deletes the folders listed above (on macOS, its preferences and saved window
+  state too) and quits. It removes links to your own folders as links, never following them. It
+  leaves your repositories' branches and Git's worktree records (step 3 below), the Codex sandbox
+  accounts on Windows (step 5) and files the agents keep for themselves (step 6), and the
+  confirmation names what each agent leaves.
 - To do it by hand instead, for example if Moontors can't start:
-  1. Sign out of each provider in Moontors, then quit Moontors. The background service stops on
-     its own once any running sessions finish.
+  1. Sign out of your Moontors account (Profile, the **Account** tab, **Sign out**) and of
+     each provider in Moontors, then quit Moontors. The background service stops on its own once
+     any running sessions finish.
   2. Delete the `.moontors` folder, the app's own folder and the update cache folders listed above,
      and on macOS also `~/Library/Preferences/com.moontors.app.plist` and
      `~/Library/Saved Application State/com.moontors.app.savedState`.
@@ -127,7 +145,8 @@ left behind is deleted when the agent next starts.
      longer want.
   4. Signing out removes Moontors' keychain entries. If you couldn't sign out first: the entry
      named `moontors` holds the API keys you gave Moontors, and the cloud sign-ins you chose for
-     Claude Code or Gemini CLI (one for each provider), and Claude Code's sign-in through Moontors
+     Claude Code or Gemini CLI (one for each provider), the entry named `moontors-account` holds
+     your Moontors account's sign-in on this computer, and Claude Code's sign-in through Moontors
      is an entry named `Claude Code-credentials-` followed by a short code, one for each Claude
      configuration folder. The entry named exactly `Claude Code-credentials` is your own Claude
      Code's: keep it, and leave alone any entries other apps made.
@@ -141,8 +160,13 @@ left behind is deleted when the agent next starts.
 
 ## What Moontors doesn't do
 
-- No account: you don't sign up for Moontors.
-- No analytics, telemetry, crash reporting, identifiers or tracking of any kind.
+- No account needed: Moontors works without one, and a Moontors account is yours to make or not
+  (see "Your Moontors account").
+- No analytics, telemetry, crash reporting or tracking of any kind, and no identifier beyond a
+  Moontors account's own: its id, its computers' and phones' ids, its phones' push tokens and relay
+  credentials, and the random id each call to its server carries (see "Your Moontors account").
+  Once you turn a phone's notifications on, Firebase's own software in the app sends Google what
+  "Push notifications" says, which Moontors never sees.
 - No advertising, and nothing is sold or shared.
 
 ## What connects to the internet
@@ -154,6 +178,8 @@ Moontors itself connects only to:
   under GitHub's own privacy policy. Moontors sends no identifier with it.
 - **The npm registry** (registry.npmjs.org), to download the agents' own programs the first time
   you use each one, and when Moontors moves to a newer version of them. npm sees your IP address.
+- **Moontors' server** (api.moontors.com), only while you're signed in to a Moontors account, or
+  signing in to one; see "Your Moontors account".
 
 **Git, when Moontors makes a worktree,** runs your repository's own hooks and filters (such as Git
 LFS), which may connect to the servers they name, as they would for any checkout.
@@ -199,11 +225,207 @@ What Moontors gives an agent goes only to that agent, which may pass it on to it
 Moontors receives from the agents only what they report to it (their replies, models, usage and
 limits), and keeps it on your computer.
 
+## Your Moontors account
+
+A Moontors account is optional: Moontors and its phone app work without one. It's Moontors' own,
+apart from your agents' sign-ins: signing in to it with Google never signs Gemini CLI in, and no
+agent's sign-in ever reaches it. You make it, and sign in to it, in your browser, on Moontors'
+server at api.moontors.com, which Render hosts in Frankfurt, Germany, with the server's database
+there. Your sessions, your code and anything a session holds never reach the server.
+
+### What the server keeps
+
+- Your email address, verified: an account is made only once a code mailed to it is entered, or
+  once Google, Apple or GitHub says it has verified it.
+- Each way the account signs in: a password as its hash, never the password itself, and for Google,
+  Apple or GitHub, the id that provider gives your account there. It keeps none of the provider's
+  tokens, nor the name or picture the provider gives. An Apple sign-in goes once Apple tells the
+  server you've stopped using your Apple Account with Moontors, or deleted it.
+- Each sign-in, one for each browser and each computer signed in: a random token, when it was made
+  and when it ends, 30 days after it was last used, and once ended it's deleted within a day. Never
+  the IP address it came from, nor the browser it was made in.
+- The settings your computers sync, as each signed in does unless you turn it off there: each
+  agent's defaults for a new session, the agents' order, the quick actions, what **Rephrase** does,
+  what the Git view's network button does and whether **Files** saves as you leave a file, each with
+  when it last changed, until the account is deleted. Never a project, a folder, a sign-in or a key.
+- If your plan gives push, as Pro does, or the developer allows your account: each phone your
+  computers send its notifications to, by the id your computer gave it, with its push token from
+  Google's Firebase, until the phone is unpaired, the account deleted, or 60 days pass without your
+  computer sending the token again, as it does each day the phone connects with notifications on
+  (see "Push notifications" under "The phone app").
+- If your plan reaches your computer from anywhere, as Pro does, or the developer allows your
+  account, and registered only while it does: each of your computers, by the id the server gave it
+  and the random id Moontors on it made, with its name as your system names it, the region whose
+  relay it uses and when it was last connected; each phone given a credential to reach it through
+  the relay, from the moment it's given one, used or not, by the id your computer gave it, with its
+  name, its credential as a hash, never the credential itself, when it was paired and when it last
+  reached the computer; a pairing window's one-time meeting place, as its hash, until it's used or
+  the next pairing window replaces it; and how many bytes your phones' links passed through the
+  relay each day, for the caps, never what they held. A phone goes once it's unpaired or revoked, a
+  computer with every phone it has once you forget all phones on it, and all of it once the account
+  is deleted.
+- From your first checkout for Pro, paid or not: your customer id at Paddle, which sells Pro, and
+  the id of each checkout's transaction there, so that only a subscription bought through one of
+  them is ever yours. Once you buy it: your subscription's id there, and its state as Paddle last told the server: whether
+  it's active, past due, paused or canceled, monthly or yearly, when it renews, when a cancel you
+  scheduled ends it, and when it was first paid for, so that deleting the account within 14 days of
+  that refunds it. Never a card, an address, an invoice or an amount, which Paddle keeps. Each is
+  kept until the account is deleted, a canceled subscription with them.
+- While a step is under way, for no longer than it lasts: a sign-up's code, as its hash, with the
+  email it was mailed to, for ten minutes; when each code was mailed to an email, by a hash of the
+  address, for a day, so that no more than ten a day go to one address; a link to set a new
+  password, for an hour; a sign-in in your browser for your computer, for up to an hour, and the
+  code that hands it to Moontors, as its hash, for five minutes; and a sign-in with Google, Apple or
+  GitHub, or a method being linked, for ten minutes. Each goes once it's used, or once it has
+  expired, when the server next clears what has.
+
+### What the server sends, and to whom
+
+- **Your mail, through Resend:** a sign-up's code and a link to set a new password go to your email
+  from Moontors' own address, sent by Resend from its EU region, in Ireland. Resend receives your
+  email address and the mail's text, the code or the link with it, and keeps its record of what it
+  sent, under its own privacy policy and data processing terms.
+- **Google, Apple and GitHub, when you sign in with them:** your browser goes to the provider's
+  sign-in page, and the provider tells Moontors' server your email, whether it has verified it and
+  the id of your account there, with a name and picture the server drops. The provider learns that
+  you signed in to Moontors, under its own privacy policy. Sign in with Apple can give a private
+  relay address in place of your email, and mail to it passes through Apple.
+- **Push, through Google's Firebase:** if your plan gives push, the server hands Google's Firebase
+  Cloud Messaging each notification your computer sealed for a phone, with that phone's push token,
+  and Firebase passes an iPhone's on to Apple's push service. They carry only the token, the sealed
+  notification, which they can't read, and, for an iPhone, an alert in Moontors' own words that says
+  nothing of your sessions, under their own privacy policies.
+- **Pro, through Paddle:** Paddle sells Pro as its merchant of record. The server gives it your
+  email, to make your customer at Paddle once, at your first checkout, and your account's id with
+  each checkout, so the subscription it makes is yours; it asks Paddle for Pro's prices, your
+  invoices and the customer portal's links as you open them, and cancels and refunds as deleting
+  the account says. At checkout you give Paddle your card, your address and what tax needs
+  yourself, and Paddle keeps them and its record of each purchase under its own
+  [privacy notice](https://www.paddle.com/legal/privacy). Paddle tells the server each change to
+  your subscription, by its id and state.
+- Nothing else: the server sells nothing, shares nothing and shows no advertising.
+
+### What reaches the server, and what it logs
+
+- **The relay**, if your plan reaches your computer from anywhere: your phone's link to your
+  computer passes through the server when the phone can't reach your computer directly, encrypted
+  between them with your computer's own key, so the server can't read it
+  (see "Through the relay"). It sees only how much passes and when, and counts each day's bytes.
+  Your computer keeps a connection open to it while your plan gives it.
+
+- Each request reaches it through Render's network, which passes it through Cloudflare first, and
+  both see your IP address, as any website's host does, under their own privacy policies.
+- The server reads the IP address only to limit how often one address tries something, a relay
+  credential or meeting place it got wrong among them, how often it asks for Pro's prices, and how
+  many sign-up codes and password links it mails for one address in a day: it counts in the
+  server's memory alone, never stored, each try going within ten seconds after its minute has
+  passed, and each mail after its day.
+- The server's log, which Render keeps for up to 30 days, holds each request's method, the route it
+  matched, its status and how long it took, and a random id for the request, which the desktop's own
+  log of a failed call to the server carries too. The relay's own lines, for an account reaching a
+  cap or a count the relay couldn't write, billing's, for each change to an account's subscription
+  Paddle told the server of, with its state, and the one for an Apple sign-in taken off, with what
+  Apple said, also carry the account's id, kept as long. Never an email address, a token, a code,
+  a password, an IP address, what a page held or what passed through the relay.
+- Its pages set two cookies, to sign you in and for nothing else: `__Secure-moontors.session_token`,
+  your browser's sign-in, which lasts while it's used, until 30 days without, and
+  `__Secure-moontors.state`, for five minutes while a sign-in with Google, Apple or GitHub is under
+  way. They run no script, load nothing from any other site, and have no analytics or trackers.
+
+### What your computer sends it
+
+Moontors on your computer keeps the account's sign-in in your keychain (see
+"What Moontors keeps, and where") and calls the server only while signed in, or signing in, but to
+ask for Pro's prices: it reads the account once a day, which keeps its sign-in alive, and again each
+time its **Account** or **Subscription** tab in **Profile** shows, and sends what you ask on the
+**Account** tab, to sign out, link a method or delete the account, each with the account's token and
+a random id for the call. While your plan isn't Pro, signed in or not, the **Subscription** tab asks
+the server for Pro's prices and whether Pro is on sale each time it shows, with no token and nothing
+of you or your computer. Unless you turn syncing settings off on the **Account** tab,
+it sends the settings it syncs (see "What the server keeps") when one changes, as it signs in or
+starts, when its window comes to the front, at most once a minute, and hourly, and takes back those
+your other computers changed.
+If your plan gives push, it also sends each paired phone's push token, which the server forgets once the phone is unpaired or once 60 days pass without it, and the notifications
+for phones that aren't connected with the app open, each sealed on your computer so that only its
+phone can read it.
+If your plan reaches your computer from anywhere, it also registers your computer, by its random id
+and its name as your system names it; asks the server for a one-time meeting place each time you
+open a pairing window, good until the window ends, for a phone to pair through the relay; asks it
+for a credential for each phone it pairs, which it hands to that phone alone over their encrypted
+link; tells the server when a phone is unpaired, and when you forget all phones; and reads the
+phones on your account and this month's use for its tab.
+As that tab shows, it also asks the server for Pro's prices and your invoices, and, as you ask for
+them, a checkout, which it opens in your browser, and the customer portal's links.
+
+### Why the server keeps it
+
+- **To give you the account and the features you asked for**, the contract between us (the
+  GDPR's article 6(1)(b)): your email, your sign-in methods and sign-ins, the settings your
+  computers sync, the steps under way, the mail Resend sends; if your plan gives push, your phones' push tokens and the notifications
+  Firebase carries; and if it reaches your computer from anywhere, your computers, their phones'
+  relay credentials, the pairing windows' meeting places and each day's bytes through the relay;
+  from your first checkout, your customer at Paddle and your checkouts' transactions; and once you
+  buy Pro, your subscription there and its state. Each is kept as long as this policy says above, the account until you delete it.
+- **To keep the server and its accounts safe and working**, our legitimate interest (article
+  6(1)(f)): the server's log, which never names you, and its count of each address's tries, in its
+  memory for a minute after the address's last try, or a day after the last mail it asked for.
+- Nothing is kept or sent on consent, for marketing or for anyone else's use. Everything else
+  Moontors keeps, on your computer and your phone, stays there and never reaches us.
+
+### Where it's processed
+
+The server, its database and its log are at Render in Frankfurt, and Resend sends your mail from its
+EU region in Ireland. But the companies behind them, and the others below, are in the United States:
+Render's and Resend's terms say their primary processing takes place there. Each names the basis its
+transfers of personal data out of the EU rest on:
+
+- **Render** (Render Services, Inc.), which hosts the server and this website: the EU-U.S. Data
+  Privacy Framework, under which it's certified, and the EU's standard contractual clauses where the
+  framework doesn't apply or stops being available (its
+  [data processing addendum](https://render.com/dpa), section 6, and its
+  [privacy policy](https://render.com/privacy)).
+- **Resend** (Plus Five Five, Inc.), which sends your mail: the EU's standard contractual clauses,
+  and it's certified under the EU-U.S. Data Privacy Framework too (its
+  [data processing addendum](https://resend.com/legal/dpa), sections 6 and 11).
+- **Cloudflare** (Cloudflare, Inc.), which Render's network passes each request to the server
+  through: its certification under the EU-U.S. Data Privacy Framework, and the standard contractual
+  clauses should it lapse (its [privacy policy](https://www.cloudflare.com/privacypolicy/)).
+- **Google** (Google LLC), whose Firebase Cloud Messaging carries push: the EU-U.S. Data Privacy
+  Framework, and the standard contractual clauses where it isn't available (Firebase's
+  [data processing terms](https://firebase.google.com/terms/data-processing-terms), section 10, and
+  Google's [data transfer frameworks](https://policies.google.com/privacy/frameworks)). Firebase may
+  process what it carries in any country where Google or its subprocessors have facilities.
+- **Apple**, whose push service carries an iPhone's notifications on from Firebase: standard
+  contractual clauses, and it generally stores personal data in the United States (its
+  [privacy policy](https://www.apple.com/legal/privacy/en-ww/)).
+- **Paddle** (Paddle.com Market Limited, in the United Kingdom, with its companies in the United
+  States, Ireland and Canada), which sells Pro: a country an EU or UK adequacy decision covers, and
+  the standard contractual clauses for any other (its
+  [privacy notice](https://www.paddle.com/legal/privacy), section F).
+
+### Deleting your account
+
+- **Sign out**, on **Profile**'s **Account** tab in Moontors, ends this computer's sign-in at the
+  server and removes it from your keychain. **Help → Remove Moontors' Data…** signs out too.
+- **Delete account…**, on the same tab, deletes the account from the server at once: its email, its
+  sign-in methods, every sign-in, the settings your computers synced, its phones' push tokens, its computers with their phones and the
+  relay's counts, and what it keeps of Pro. The server may ask you to sign in again first. If you
+  pay for Pro, it first cancels the subscription at Paddle at once, refunding its first payment in
+  full within 14 days of it; if Paddle can't be reached, nothing is deleted. A step under way goes
+  once it has expired, when the server next clears what has. Resend keeps its record of the mail it
+  sent by its own terms, Paddle its record of each purchase, as a seller must, and Render keeps the
+  server's log for its days; the log never names you. If your address signs up for a Moontors
+  account again later, the server moves your old customer's email at Paddle to an address no mail
+  reaches before the new account checks out, so the new account never sees your purchases.
+- Questions about your account's data: moontors@moontors.com.
+
 ## The phone app
 
 The phone app shows the sessions Moontors runs on your computer, and works with them from your
-phone. It pairs with your computer, and what you do in it goes only there: there's no account, no
-Moontors server and nothing in between.
+phone. It pairs with your computer, and what you do in it goes only there: the phone signs in to no
+account, and nothing is in between but Moontors' relay, where your computer's Moontors account has
+it, which carries the link without reading it (see "Through the relay"). Push notifications, which
+you can turn on, go through your computer's Moontors account too (see "Push notifications").
 
 **See a demo**, before pairing, opens sample sessions inside the app, as your computer would run
 them; nothing in it runs. Nothing in the demo is sent anywhere unless you share it yourself, and what you type in it is gone once you
@@ -219,16 +441,23 @@ All of it in the app's own storage on the phone, which no other app can read:
   kept to that iPhone alone; with them, a random value in the app's files that marks this install;
 - the messages you've typed but not sent, in a file, each until you send it or its session goes,
   and all of them once the phone is no longer paired;
-- copies of the photos and files you pick or paste to send, in the app's cache, each until it
-  leaves the message, sent or taken off, or its session goes, and any still there when the app next
-  starts; and of a transcript you export, until you export another or the app next starts.
+- copies of the photos and files you pick or paste to send, in the app's cache, each until it leaves
+  the message, sent or taken off, or its session goes, and any still there when the app next starts;
+  and of a transcript you export, until you export another or the app next starts;
+- where your computer's Moontors account has the relay, the phone's relay credential for each
+  computer, with the relay's address and the server's id for the computer, kept as the paired
+  computers are but apart from them;
+- once push notifications are on, the key each paired computer's notifications open with, in
+  storage sealed by the Android Keystore, or in an iPhone's keychain, kept to that iPhone alone and
+  shared only with the app's own extension that opens notifications; and Firebase's token for the
+  app, which Firebase keeps in the app's storage.
 
 Android's backup is off for the app, and a move to a new phone with Android's own transfer carries
-none of these. On an iPhone, the paired computers go into its backups locked to that iPhone:
-restored onto it they come back, and no other iPhone can read them, so they never move to a new one.
-The app's other files go into your iPhone's backups as any app's do: the messages you've typed but
-not sent, and the random value that marks the install, which pairs with nothing on its own. The
-copies in the app's cache don't.
+none of these. On an iPhone, the paired computers and their relay credentials go into its backups
+locked to that iPhone: restored onto it they come back, and no other iPhone can read them, so they
+never move to a new one. The app's other files go into your iPhone's backups as any app's do: the
+messages you've typed but not sent, and the random value that marks the install, which pairs with
+nothing on its own. The copies in the app's cache don't.
 
 ### What the phone sends, and to whom
 
@@ -249,8 +478,8 @@ exported transcript:
 The link is TLS 1.3, pinned to your computer's own key, which the phone learns while pairing, so
 nothing between the two can read it or stand in for your computer. The phone connects to your
 computer's IP addresses, on your local network, through Tailscale, or through another VPN your
-computer is on, and to find it on the local network, it looks for Moontors there (mDNS), which an
-iPhone asks you to allow first; the phone announces nothing itself.
+computer is on, or through Moontors' relay, and to find it on the local network, it looks for
+Moontors there (mDNS), which an iPhone asks you to allow first; the phone announces nothing itself.
 
 - **The camera** is used only to scan the pairing code, which the app reads on the phone itself.
   No picture is kept or sent, and only the code it reads is used.
@@ -259,6 +488,8 @@ iPhone asks you to allow first; the phone announces nothing itself.
   any details its file still holds; on an iPhone with iOS 17 or later, the picker's own Options say
   whether that includes where it was taken.
 - **Links** open in your phone's browser.
+- **Moontors' relay,** where your computer's Moontors account has it, as "Through the relay" says.
+- **Firebase,** only once you turn push notifications on, as "Push notifications" says.
 - **Google Play,** where the Android app comes from, gives Moontors' developer counts of its
   installs, and reports of the app's crashes and freezes (ANRs) from phones whose owners let Android
   share usage and diagnostics with Google. Those come from Google, under its own privacy policy;
@@ -268,6 +499,57 @@ iPhone asks you to allow first; the phone announces nothing itself.
   from iPhones whose owners chose to share analytics with app developers; and the ratings and
   reviews posted there. Those come from Apple, under its own privacy policy; nothing of them comes
   from the app.
+
+### Through the relay
+
+Where your computer's Moontors account has the relay, as Pro does, or the developer allows your
+account, the phone can reach your computer from anywhere through Moontors' server:
+
+- **Its credential:** when the phone pairs from a code that names the relay, or, paired before, the
+  first time it reaches your computer once the account has the relay, your computer registers the
+  phone with Moontors' server, by the id it gave the phone and the phone's name, and hands the phone
+  the relay credential the server issued for it, with the relay's address and the server's id for
+  your computer. The phone keeps them as "What the phone keeps, and where" says.
+- **Each link through it:** the phone sends the relay its credential and the server's id for your
+  computer, or, pairing, the code's one-time meeting place, and the relay sees the phone's IP
+  address.
+  Inside, the link is the same TLS pinned to your computer's own key, with the phone's token: the
+  relay passes it on and can't read it, nor stand in for your computer.
+- **Removing it:** forgetting the computer on the phone, or the phone being unpaired, deletes its
+  relay credential from the phone; the relay saying it no longer takes the credential does too.
+
+### Push notifications
+
+Push notifications work through your computer's Moontors account: your computer signed in to it,
+with a plan that gives push, as Pro does, or the developer allows your account. The phone itself
+signs in to nothing. They're off until you turn them on in the app, which asks your phone's
+permission first. Until then, the app never contacts Firebase. Once they're on:
+
+- The phone asks Firebase Cloud Messaging, the Google service that delivers notifications to Android
+  phones, and to iPhones through Apple's own service, for a token that addresses this app on this
+  phone. Firebase sees your IP address and makes an installation ID for the app, and its software in
+  the app sends Google the app's version, the phone's model, brand and system, and which Firebase
+  software it runs, with, on an iPhone, its language and time zone, and on Android, the store that
+  installed the app, which Google uses to count the versions in use and to keep the service
+  working, never linked to you, under Google's own privacy policy.
+- The phone gives that token to each computer it's paired with, over the paired link, with a random
+  key for that computer alone, each time it connects. Your computer registers the token with
+  Moontors' server under its account, to send your computer's notifications to your phone, and
+  "Your Moontors account" says how long the server keeps it. The key never leaves your phone and
+  your computer.
+- Your computer seals each notification's words (the session's title and what happened) with that
+  key before they leave it, so Moontors' server, Firebase and Apple carry only ciphertext, which only
+  your phone opens. On an iPhone, Apple's notification says "Moontors needs you" until the phone has
+  opened it, and keeps saying it if it can't.
+- With notifications off, in your phone's settings, by your account's plan or by your computer
+  signing out, nothing sends the token again, so the server deletes it within 60 days.
+- Unpairing the phone deletes the token from the server, at once while your computer is signed in,
+  and within 60 days in any case. As it unpairs, the phone gives up that computer's key, and the
+  token too once no computer it's paired with has notifications on.
+- Forgetting a computer on the phone, which that computer doesn't hear of, gives up its key and the
+  token at once, and the phone takes a new token for its other computers as it next links to each.
+  The server deletes the old token the next time that computer sends to it, as Firebase answers that
+  it's gone, or within 60 days.
 
 ### Your computer's side
 
@@ -285,7 +567,8 @@ and removing the phone in Moontors deletes your computer's record of it.
 
 This policy also covers Moontors' website, moontors.com:
 
-- It's a set of static pages. It sets no cookies, and has no analytics, advertising or trackers.
+- It's a set of static pages. Moontors sets no cookies on them, and has no analytics, advertising or
+  trackers; the pay pages' Paddle.js is Paddle's (below).
 - The docs' sidebar remembers which sections you opened, in your browser's session storage, which
   stays in that tab and is never sent.
 - Its search runs in your browser, on an index it loads from the site, so what you search for
@@ -293,8 +576,37 @@ This policy also covers Moontors' website, moontors.com:
 - It's hosted by Render, which serves the pages and, like any web host, sees your IP address and
   the pages you request, under Render's own privacy policy.
 - Its download links lead to GitHub, which sees the download as described above.
+- Moontors' sign-in pages, at api.moontors.com, are the server's (see "Your Moontors account").
+- Its pay pages, moontors.com/pay and, for testing, moontors.com/pay/sandbox, are where Paddle's
+  checkout for Moontors Pro opens, from **Upgrade** in Moontors or a link in one of Paddle's emails.
+  They load Paddle.js from Paddle, which opens Paddle's checkout over the page, so Paddle sees your
+  IP address and your browser. Paddle, which sells Pro as its merchant of record, collects what you
+  enter in its checkout (your email address, your country and address details, a tax number if you
+  give one, and your card or other payment details) under its own
+  [privacy notice](https://www.paddle.com/legal/privacy). Moontors never sees your payment details.
+  Paddle's documents don't say what Paddle.js or its checkout keep in your browser: the cookies
+  section of its privacy notice and its
+  [Cookie Notice](https://www.iubenda.com/privacy-policy/83216669/cookie-policy) cover paddle.com
+  alone ("This policy relates solely to this Website"). No other page of the site loads anything
+  from Paddle.
 
 If the site ever adds cookies or analytics, this policy changes first.
+
+## Your rights
+
+Under the GDPR, and laws like it where you live, you can ask us about what Moontors' server keeps
+about you, and:
+
+- **access** it: a copy of all of it;
+- **rectify** it: the account's email can't be changed in Moontors, so ask us; you can link another
+  sign-in method on **Profile**'s **Account** tab yourself;
+- **erase** it: **Delete account…** on that tab deletes it at once (see "Deleting your account"), or
+  ask us;
+- **take it with you**: a copy in a machine-readable form;
+- **object** to what the server keeps for our legitimate interest, its log and its count of tries.
+
+Ask at moontors@moontors.com, from your account's email address so we know it's yours. You can also
+complain to a data protection supervisory authority, such as the one where you live or work.
 
 ## Children
 
@@ -303,9 +615,10 @@ Moontors is a developer tool, not meant for children under 16.
 ## Changes
 
 If Moontors ever changes what it collects, this policy changes first, and its date at the top
-changes with it. Paid features may come in the future; if they need an account or payment details,
-this policy will say what is collected, by whom and why, before they arrive.
+changes with it.
 
 ## Contact
 
-Questions about privacy: hello@moontors.com.
+Roi Dayan, Moontors' developer, decides what Moontors does with the personal data this policy
+describes, and is its controller under the GDPR. Questions about privacy, and the requests in
+"Your rights", go to moontors@moontors.com.

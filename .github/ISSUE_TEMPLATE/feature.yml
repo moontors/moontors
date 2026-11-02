@@ -30,6 +30,7 @@ body:
         - Claude Code
         - Codex
         - Gemini CLI
+        - Grok Build
   - type: textarea
     id: more
     attributes:

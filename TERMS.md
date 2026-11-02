@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 31 October 2026
+Last updated: 1 November 2026
 
 These terms are an agreement between you and the maker of Moontors ("we", "us") about your use of
 the Moontors desktop app and the Moontors apps for iPhone and Android ("Moontors"). By installing or
@@ -80,10 +80,10 @@ paid plan. If that happens, we'll say so in the app and in the release notes bef
 
 ## The agents, and your accounts with their vendors
 
-Moontors runs AI coding agents (Claude Code, Codex and Gemini CLI) made by Anthropic, OpenAI and
-Google. They are those companies' products, and your use of them, your accounts with them (or with
-the cloud service you set an agent up with), and what they charge you are governed by their own
-terms. We aren't part of that agreement and aren't responsible for those services.
+Moontors runs AI coding agents (Claude Code, Codex, Gemini CLI and Grok Build) made by Anthropic,
+OpenAI, Google and xAI. They are those companies' products, and your use of them, your accounts with
+them (or with the cloud service you set an agent up with), and what they charge you are governed by
+their own terms. We aren't part of that agreement and aren't responsible for those services.
 
 ## You are responsible for what your agents do
 

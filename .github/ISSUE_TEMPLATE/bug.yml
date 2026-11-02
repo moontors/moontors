@@ -71,6 +71,7 @@ body:
         - Claude Code
         - Codex
         - Gemini CLI
+        - Grok Build
         - More than one, or not about an agent
     validations:
       required: true

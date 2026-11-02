@@ -1,16 +1,18 @@
 # Privacy Policy
 
-Last updated: 31 October 2026
+Last updated: 2 November 2026
 
-Moontors is a desktop app for running AI coding agents (Claude Code, Codex and Gemini CLI) on your
-own computer, with a phone app for Android and iPhone that shows and works with the same sessions
-(see "The phone app"). This policy says what Moontors, its phone app, and its website moontors.com
-(see "The website") do with your information. In short: without a Moontors account, Moontors
-collects nothing about you; it keeps what it stores on your computer and your phone, and gives the
-agents only what they need to do your work, listed below. A Moontors account is yours to make or
-not: Moontors works without one, and one keeps your email, how you sign in and, if your plan gives
-push or reaching your computer from anywhere, your phones' push tokens and your computers' and
-phones' names (see "Your Moontors account").
+Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI and
+Grok Build) on your own computer, with a phone app for Android and iPhone that shows and works with
+the same sessions (see "The phone app"). This policy says what Moontors, its phone app, and its
+website moontors.com (see "The website") do with your information. In short: Moontors keeps what it
+stores on your computer and your phone, and gives the agents only what they need to do your work,
+listed below. Unless you turn it off, the desktop and phone apps send PostHog counts of how they're
+used and reports of their errors, under a random id for the install, never tied to your account,
+and never your prompts, code, files or names (see "Usage numbers and error reports"). A Moontors
+account is yours to make or not: Moontors works without one, and one keeps your email, how you sign
+in and, if your plan gives push or reaching your computer from anywhere, your phones' push tokens and
+your computers' and phones' names (see "Your Moontors account").
 
 ## What Moontors keeps, and where
 
@@ -106,8 +108,8 @@ left behind is deleted when the agent next starts.
   changed the database may still hold it, until the next such update replaces that copy or you
   delete it. Where the agent can, deleting a session also deletes the agent's own copy, and
   Moontors says before you confirm whether it will. Gemini CLI also keeps your prompts in its
-  project's own log, which deleting a session leaves in place. Neither reaches what the agent's
-  vendor keeps on its own servers.
+  project's own log, and Grok Build in its own prompt history, which deleting a session leaves in
+  place. Neither reaches what the agent's vendor keeps on its own servers.
 - Removing a phone in **Phones** deletes Moontors' record of it, and disconnects it; a phone that's
   connected then forgets your computer, and the drafts it kept. **Forget all phones…** removes
   every phone and also replaces your computer's key, so no phone paired before can reach it. A
@@ -120,8 +122,8 @@ left behind is deleted when the agent next starts.
   account from the server (see "Your Moontors account").
 - Signing out of a provider in Moontors removes the API key or cloud credentials you gave it from
   the keychain, and signs the agent out, which removes the sign-in it kept (such as Claude Code's
-  keychain entry, Codex's `auth.json`, or Gemini CLI's credentials and its record of which Google
-  account signed in).
+  keychain entry, Codex's and Grok Build's `auth.json`, or Gemini CLI's credentials and its record
+  of which Google account signed in).
 - To remove everything Moontors keeps, choose **Help → Remove Moontors' Data…** in Moontors. It
   lists what it will delete first, including any worktree with uncommitted changes. Then it signs
   out of each provider and of your Moontors account, removes Moontors' keychain entries, stops the
@@ -162,11 +164,12 @@ left behind is deleted when the agent next starts.
 
 - No account needed: Moontors works without one, and a Moontors account is yours to make or not
   (see "Your Moontors account").
-- No analytics, telemetry, crash reporting or tracking of any kind, and no identifier beyond a
-  Moontors account's own: its id, its computers' and phones' ids, its phones' push tokens and relay
-  credentials, and the random id each call to its server carries (see "Your Moontors account").
-  Once you turn a phone's notifications on, Firebase's own software in the app sends Google what
-  "Push notifications" says, which Moontors never sees.
+- No tracking across other apps or sites, and no advertising identifier. The usage numbers and
+  error reports, which you can turn off, carry a random id for the install alone (see "Usage numbers
+  and error reports"); beside it, no identifier but a Moontors account's own: its id, its computers'
+  and phones' ids, its phones' push tokens and relay credentials, and the random id each call to its
+  server carries (see "Your Moontors account"). Once you turn a phone's notifications on, Firebase's
+  own software in the app sends Google what "Push notifications" says, which Moontors never sees.
 - No advertising, and nothing is sold or shared.
 
 ## What connects to the internet
@@ -180,6 +183,8 @@ Moontors itself connects only to:
   you use each one, and when Moontors moves to a newer version of them. npm sees your IP address.
 - **Moontors' server** (api.moontors.com), only while you're signed in to a Moontors account, or
   signing in to one; see "Your Moontors account".
+- **PostHog** (eu.i.posthog.com), with the usage numbers and error reports, unless you turn them off;
+  see "Usage numbers and error reports".
 
 **Git, when Moontors makes a worktree,** runs your repository's own hooks and filters (such as Git
 LFS), which may connect to the servers they name, as they would for any checkout.
@@ -188,13 +193,14 @@ LFS), which may connect to the servers they name, as they would for any checkout
 command opens (for example to upgrade your plan), and any web link you click in Moontors open in
 your browser, which connects to that site.
 
-**The agents are separate programs.** When you use Claude Code, Codex or Gemini CLI through
-Moontors, your prompts, the files the agent reads and its replies go between that agent and its
-vendor (Anthropic, OpenAI or Google), or the cloud service you set the agent up with (such as Amazon
-Bedrock, Google Vertex AI or Microsoft Foundry), and to any MCP servers you add to it, and its own
-tools (such as web fetches, shell commands and hooks) reach whatever sites they're pointed at,
-exactly as when you use the agent on its own. That is governed by those services' own terms and
-privacy policies, and by the agent's own settings, including any usage data the agent itself sends.
+**The agents are separate programs.** When you use Claude Code, Codex, Gemini CLI or Grok Build
+through Moontors, your prompts, the files the agent reads and its replies go between that agent
+and its vendor (Anthropic, OpenAI, Google or xAI), or the cloud service you set the agent up with
+(such as Amazon Bedrock, Google Vertex AI or Microsoft Foundry), and to any MCP servers you add to
+it, and its own tools (such as web fetches, shell commands and hooks) reach whatever sites they're
+pointed at, exactly as when you use the agent on its own. That is governed by those services' own
+terms and privacy policies, and by the agent's own settings, including any usage data the agent
+itself sends.
 
 What Moontors gives an agent goes only to that agent, which may pass it on to its vendor as above:
 
@@ -209,6 +215,10 @@ What Moontors gives an agent goes only to that agent, which may pass it on to it
 - your own configuration for that agent, as described above, as the agent would read it itself;
 - the prompts some Moontors commands write for you, such as /init and a review, and a recap, which
   repeats your recent messages and the agent's replies in that session;
+- once the first turn of a session you didn't name is over, that session's first message once
+  more, with an instruction to give the session a title: Claude Code's own title request, a short
+  thread of Codex's own (on its small model for titles where your ChatGPT account lists it) or a
+  separate run of Gemini CLI, none of which the agent keeps;
 - a subtask's answer, which Moontors passes to the session that started the subtask, together
   with your next prompt to it;
 - short requests, with no conversation, for the models your account can use and its usage limits,
@@ -219,11 +229,65 @@ What Moontors gives an agent goes only to that agent, which may pass it on to it
   that session's whole conversation, the agent's own review's included, which Codex uploads from
   your account as its own `/feedback` does. Moontors asks Codex to send one only when you press
   Send, after saying what goes;
-- Moontors' name and version, which Codex and Gemini CLI receive when Moontors starts them. Codex
-  names Moontors to OpenAI as the app it runs in.
+- Moontors' name and version, which Codex, Gemini CLI and Grok Build receive when Moontors starts
+  them. Codex names Moontors to OpenAI as the app it runs in.
 
 Moontors receives from the agents only what they report to it (their replies, models, usage and
 limits), and keeps it on your computer.
+
+## Usage numbers and error reports
+
+Unless you turn it off, the desktop app and the phone app send PostHog counts of how they're used and
+reports of their errors, so we can see what to improve and what breaks. Each app's are its own, under
+a random id for the install, never tied to your Moontors account, your email or any other id of
+yours, and PostHog keeps no profile of you.
+
+- **What the desktop app sends:** Moontors installed, updated, and opened on a day; a session
+  started, by its agent, mode and model, whether in a worktree and whether from the phone; a mode or
+  a model chosen; the most sessions running at once on a day, as a range; each feature used on a day;
+  an agent or the Moontors account signed in, Upgrade clicked, and the checkout opened; a turn that
+  ended on an error, by its code; an agent, a window or Moontors itself that crashed, and an update
+  that failed; and an error in Moontors' own code, by its kind and where in that code it was. With
+  each: Moontors' version, your computer's system, its version and chip, and your Moontors account's
+  plan. A model is named only on its vendor's own route (Anthropic's, OpenAI's, Google's or xAI's),
+  and only by the vendor's own name for it; on a cloud, a gateway, another endpoint or a custom model
+  option it goes as "other", whatever it's named.
+- **What the phone app sends:** the app installed and updated; a pairing finished, by whether it
+  worked; how it reached your computer, on a day; notifications turned on; a permission or a question
+  answered; a message sent, on a day; the layout it showed, on a day; and the demo opened. With each:
+  the app's version, the phone's system, its version, maker and model (never the name you gave it),
+  its screen's size, whether notifications are on, and whether it's paired; on an iPhone, also the
+  languages the phone prefers, in order, which its system adds to every request. And an error in the
+  app, by its kind and where in the app's code it was. On Android, a crash in the app's Java or Kotlin
+  code that happens while sharing is on is reported by PostHog's crash reporting in the app, which
+  sends the crash's reason or message as the system gives it, which Moontors can't remove: Moontors'
+  own code puts none of your text there, but another part of the app or the system rarely may; and
+  the phone's carrier and its user agent. A crash caught while sharing was on and not yet sent stays
+  on the phone, and goes only once sharing is on again, with the random id the app had when it
+  crashed. The app reports no other crash of its native code, and no crash of its native code on an
+  iPhone.
+- **Never sent:** your prompts, code or files, the paths on your computer, the names of your
+  projects, sessions, branches, repositories or computers, session titles, emails, keys, anything an
+  agent writes, a pairing code or link, or a notification token. An error goes without its message,
+  but for an Android crash's, as above.
+- **Where you are:** PostHog finds the country and continent from your IP address, then discards the
+  address, and keeps no city or finer place.
+- **Turning it off:** in the desktop app, **Settings → Privacy**; in the phone app, the Accounts
+  sheet, or the pairing screen before it's paired. Each says so once, the first time it runs. Off,
+  nothing more is sent from that app, what was still waiting to go is dropped (but for a crash already
+  caught on an Android phone, which waits, as above), and its random id is forgotten, so turning it
+  on again starts a new one. On your computer, `DO_NOT_TRACK=1` in the environment Moontors starts
+  in, or in your shell's startup files, keeps it off whatever the switch says.
+- **How long:** PostHog keeps them for up to 12 months, then deletes them.
+- **Why:** our legitimate interest (the GDPR's article 6(1)(f)) in seeing how Moontors is used and
+  what goes wrong, so we can fix and improve it. The switch is your objection, and it takes effect at
+  once.
+- **Who:** PostHog, Inc., in the United States, on its EU cloud, hosted in Frankfurt, Germany. It
+  processes them for us alone, under its data processing agreement, which we've signed (see "Where
+  it's processed").
+
+Moontors' server also sends PostHog counts of its own, its errors and its log's lines, never naming
+you (see "What reaches the server, and what it logs").
 
 ## Your Moontors account
 
@@ -327,6 +391,13 @@ there. Your sessions, your code and anything a session holds never reach the ser
   Paddle told the server of, with its state, and the one for an Apple sign-in taken off, with what
   Apple said, also carry the account's id, kept as long. Never an email address, a token, a code,
   a password, an IP address, what a page held or what passed through the relay.
+- The server sends PostHog, in its EU cloud, how many Moontors accounts are made, by the way each
+  signed up, and deleted, by its plan; how many Pro subscriptions start, renew and end, by how often
+  each bills or why it ended; and the server's own failures, by where in the server each happened,
+  its error's codes and the request's random id. Never your account's id, an email address, a
+  payment's id, an amount, an IP address or what a request held. PostHog keeps them up to 12 months.
+  It also sends PostHog the server's log, each line as the log above holds it but without the
+  account's id, and PostHog keeps those lines 14 days.
 - Its pages set two cookies, to sign you in and for nothing else: `__Secure-moontors.session_token`,
   your browser's sign-in, which lasts while it's used, until 30 days without, and
   `__Secure-moontors.state`, for five minutes while a sign-in with Google, Apple or GitHub is under
@@ -369,6 +440,9 @@ them, a checkout, which it opens in your browser, and the customer portal's link
 - **To keep the server and its accounts safe and working**, our legitimate interest (article
   6(1)(f)): the server's log, which never names you, and its count of each address's tries, in its
   memory for a minute after the address's last try, or a day after the last mail it asked for.
+- **To see how Moontors is used and what goes wrong**, our legitimate interest too: the counts and
+  errors the server sends PostHog, and its log's lines there, none of which names you (see "What
+  reaches the server, and what it logs").
 - Nothing is kept or sent on consent, for marketing or for anyone else's use. Everything else
   Moontors keeps, on your computer and your phone, stays there and never reaches us.
 
@@ -398,6 +472,11 @@ transfers of personal data out of the EU rest on:
 - **Apple**, whose push service carries an iPhone's notifications on from Firebase: standard
   contractual clauses, and it generally stores personal data in the United States (its
   [privacy policy](https://www.apple.com/legal/privacy/en-ww/)).
+- **PostHog** (PostHog, Inc.), which takes the apps' usage numbers and error reports and the
+  server's own, and its log's lines, on its EU cloud, hosted by Amazon Web Services in Frankfurt: the EU's standard
+  contractual clauses, in its [data processing agreement](https://posthog.com/dpa), which we've
+  signed; its subprocessors, Cloudflare among them, are listed there, and it gives notice before it
+  adds one.
 - **Paddle** (Paddle.com Market Limited, in the United Kingdom, with its companies in the United
   States, Ireland and Canada), which sells Pro: a country an EU or UK adequacy decision covers, and
   the standard contractual clauses for any other (its
@@ -413,8 +492,8 @@ transfers of personal data out of the EU rest on:
   pay for Pro, it first cancels the subscription at Paddle at once, refunding its first payment in
   full within 14 days of it; if Paddle can't be reached, nothing is deleted. A step under way goes
   once it has expired, when the server next clears what has. Resend keeps its record of the mail it
-  sent by its own terms, Paddle its record of each purchase, as a seller must, and Render keeps the
-  server's log for its days; the log never names you. If your address signs up for a Moontors
+  sent by its own terms, Paddle its record of each purchase, as a seller must, Render keeps the
+  server's log for its days, and PostHog its lines for 14; the log never names you. If your address signs up for a Moontors
   account again later, the server moves your old customer's email at Paddle to an address no mail
   reaches before the new account checks out, so the new account never sees your purchases.
 - Questions about your account's data: moontors@moontors.com.
@@ -450,7 +529,9 @@ All of it in the app's own storage on the phone, which no other app can read:
 - once push notifications are on, the key each paired computer's notifications open with, in
   storage sealed by the Android Keystore, or in an iPhone's keychain, kept to that iPhone alone and
   shared only with the app's own extension that opens notifications; and Firebase's token for the
-  app, which Firebase keeps in the app's storage.
+  app, which Firebase keeps in the app's storage;
+- whether you've turned usage sharing off, and, while it's on, PostHog's random id for the app and
+  what's waiting to be sent, which PostHog's software keeps in the app's storage.
 
 Android's backup is off for the app, and a move to a new phone with Android's own transfer carries
 none of these. On an iPhone, the paired computers and their relay credentials go into its backups
@@ -490,6 +571,9 @@ Moontors there (mDNS), which an iPhone asks you to allow first; the phone announ
 - **Links** open in your phone's browser.
 - **Moontors' relay,** where your computer's Moontors account has it, as "Through the relay" says.
 - **Firebase,** only once you turn push notifications on, as "Push notifications" says.
+- **PostHog,** the usage numbers and error reports, unless you turn them off, as "Usage numbers and
+  error reports" says. PostHog's software also asks PostHog for the app's settings as the app
+  starts, naming only Moontors' project.
 - **Google Play,** where the Android app comes from, gives Moontors' developer counts of its
   installs, and reports of the app's crashes and freezes (ANRs) from phones whose owners let Android
   share usage and diagnostics with Google. Those come from Google, under its own privacy policy;
@@ -567,12 +651,33 @@ and removing the phone in Moontors deletes your computer's record of it.
 
 This policy also covers Moontors' website, moontors.com:
 
-- It's a set of static pages. Moontors sets no cookies on them, and has no analytics, advertising or
-  trackers; the pay pages' Paddle.js is Paddle's (below).
+- It's a set of static pages. Moontors sets no cookies on them, and has no advertising or trackers;
+  the pay pages' Paddle.js is Paddle's (below).
+- It counts its visits with PostHog, in its EU cloud, without cookies and keeping nothing in your
+  browser. Once a page has loaded, it sends PostHog:
+  - the page's address, keeping of its query only a campaign's tags, those named `utm_` and on;
+  - where you came from, by its site alone;
+  - your browser and its version, your system, the size of your screen and window, your language and
+    your time zone;
+  - how fast the page loaded;
+  - a download or store badge you click, and where on the page it was;
+  - that the pricing came into view;
+  - a docs search that found nothing, its words lowercased, with no digits or email address;
+  - a missing page's address, the same way;
+  - an error in the site's own scripts, by its kind and where in them it happened, never its
+    message.
+- PostHog gets your IP address with each request, as any site's host does. It counts a day's
+  visitors by a hash of your IP address, your browser, the site and a salt it deletes each day, then
+  discards the address. No location is kept, no profile of you is made, and nothing links your
+  visits from one day to the next.
+- A browser that sends Do Not Track or Global Privacy Control sends nothing and loads nothing of
+  PostHog's, and the pay pages never do.
+- The site counts visits for our legitimate interest in knowing which pages people read and what
+  they download (the GDPR's article 6(1)(f)). PostHog keeps them up to 12 months.
 - The docs' sidebar remembers which sections you opened, in your browser's session storage, which
   stays in that tab and is never sent.
 - Its search runs in your browser, on an index it loads from the site, so what you search for
-  isn't sent anywhere.
+  isn't sent anywhere, but for a search that finds nothing, as above.
 - It's hosted by Render, which serves the pages and, like any web host, sees your IP address and
   the pages you request, under Render's own privacy policy.
 - Its download links lead to GitHub, which sees the download as described above.
@@ -590,7 +695,7 @@ This policy also covers Moontors' website, moontors.com:
   alone ("This policy relates solely to this Website"). No other page of the site loads anything
   from Paddle.
 
-If the site ever adds cookies or analytics, this policy changes first.
+If the site ever sets cookies or sends more, this policy changes first.
 
 ## Your rights
 
@@ -604,6 +709,11 @@ about you, and:
   ask us;
 - **take it with you**: a copy in a machine-readable form;
 - **object** to what the server keeps for our legitimate interest, its log and its count of tries.
+
+The usage numbers and error reports aren't tied to your account or your email: we can't find an
+app's by either. To object to them, turn them off in the app (see "Usage numbers and error reports"), which
+also forgets the app's random id, so nothing sent before can be linked to what it sends after (but
+for an Android phone's crash caught before and sent later, which keeps the id it had then).
 
 Ask at moontors@moontors.com, from your account's email address so we know it's yours. You can also
 complain to a data protection supervisory authority, such as the one where you live or work.

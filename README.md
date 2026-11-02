@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Many agents. Every project. One board.</strong><br>
-  Run Claude Code, Codex and Gemini CLI side by side, across all your projects, on macOS, Windows and Linux. A free agentic development environment (ADE), built around your agents rather than your files, that keeps all of them in view and working in the background.
+  Run Claude Code, Codex, Gemini CLI and Grok Build side by side, across all your projects, on macOS, Windows and Linux. A free agentic development environment (ADE), built around your agents rather than your files, that keeps all of them in view and working in the background.
 </p>
 
 <p align="center">
@@ -29,19 +29,20 @@
 
 Moontors is an **ADE, an agentic development environment**: a desktop app for macOS, Windows and
 Linux where you direct AI coding agents instead of typing every line yourself. It runs
-**Claude Code**, **Codex** and **Gemini CLI** side by side. Every session sits on one board,
-streaming its work live, so you can follow them all, answer the one that needs you, and review what
-each one changed without leaving the app. A background service runs the agents, so they keep
-working when the window is closed.
+**Claude Code**, **Codex**, **Gemini CLI** and **Grok Build** side by side. Every session sits on
+one board, streaming its work live, so you can follow them all, answer the one that needs you, and
+review what each one changed without leaving the app. A background service runs the agents, so they
+keep working when the window is closed.
 
 > **Early preview.** Moontors is at 0.x. It's ready for daily use, but expect rough edges, and
 > please [tell us](https://github.com/moontors/moontors/issues/new/choose) when you find one.
 
 ## Features
 
-- **Every session on one board.** Claude Code, Codex and Gemini CLI sessions side by side, each card
-  showing its transcript live. Sort them into your own sections; the header counts the sessions
-  running, waiting for you, with an action denied or an error, and a click on one goes to the next.
+- **Every session on one board.** Claude Code, Codex, Gemini CLI and Grok Build sessions side by
+  side, each card showing its transcript live. Sort them into your own sections; the header counts
+  the sessions running, waiting for you, with an action denied or an error, and a click on one goes
+  to the next.
 - **Talk to agents as you would to people.** Reply to any row of a transcript, send while the agent
   works, what it can't take yet waiting in the session's queue, have the agent rephrase your draft
   first, and let your sessions message each other: a Claude Code session can hand work to a Codex
@@ -76,9 +77,10 @@ working when the window is closed.
   Moontors' sessions, and Moontors never writes your own configuration files.
 - **Usage at a glance.** A context meter on every card, token usage, and your account's limits,
   with a ring by Profile for each one near its end.
-- **Private by design.** No Moontors account needed, no telemetry, no tracking. Moontors keeps your
-  sessions on your computer, and each agent talks to its own vendor, to the services and MCP servers you
-  set it up with, and to any site its own tools reach, just as it would in your terminal.
+- **Private by design.** No Moontors account needed. Moontors keeps your sessions on your computer,
+  counts how it's used and its errors without them, which you can turn off, and each agent talks to
+  its own vendor, to the services and MCP servers you set it up with, and to any site its own tools
+  reach, just as it would in your terminal.
 
 ## Download
 
@@ -111,10 +113,10 @@ in Moontors on your computer.
 
 ## Getting started
 
-1. **Sign in to a provider:** with your Claude or ChatGPT account in the browser, with an API key,
-   which Moontors keeps in your system's keychain, or through Amazon Bedrock, Google Cloud's Vertex
-   AI or Microsoft Foundry where the agent offers it. Gemini CLI takes a Gemini API key or Vertex
-   AI, as Google doesn't let personal accounts sign in to it through the browser.
+1. **Sign in to a provider:** with your Claude, ChatGPT or grok.com account in the browser, with an
+   API key, which Moontors keeps in your system's keychain, or through Amazon Bedrock, Google
+   Cloud's Vertex AI or Microsoft Foundry where the agent offers it. Gemini CLI takes a Gemini API
+   key or Vertex AI, as Google doesn't let personal accounts sign in to it through the browser.
 2. **Create a session:** pick a project folder, choose an agent and a model, and give it a task.
 3. **Follow along on the board.** Open any session to read its full transcript, answer its
    questions, or review its changes.
@@ -141,7 +143,7 @@ It's where you work with AI coding agents rather than only an editor. You start 
 follow their progress, answer their questions and permission requests, and review their changes.
 Moontors does that for several agents at once, from different vendors, in one window.
 
-**Does Moontors replace Claude Code, Codex or Gemini CLI?**
+**Does Moontors replace Claude Code, Codex, Gemini CLI or Grok Build?**
 No. Moontors runs each vendor's own official agent, so you get the same agent, signed in with your
 own account and using your own settings, MCP servers and skills, with a desktop app around it.
 
@@ -153,9 +155,10 @@ reaching your computer from anywhere, for a Moontors account (see
 
 **What do I need to use it?**
 An account with the agent's vendor, or a cloud that runs it: a Claude subscription or an Anthropic
-API key for Claude Code, a ChatGPT plan or an OpenAI API key for Codex, and a Gemini API key for
-Gemini CLI; or Amazon Bedrock for Claude Code and Codex, Google Cloud's Vertex AI for Claude Code
-and Gemini CLI, and Microsoft Foundry for Claude Code. Moontors itself is free.
+API key for Claude Code, a ChatGPT plan or an OpenAI API key for Codex, a Gemini API key for
+Gemini CLI, and a grok.com account or an xAI API key for Grok Build; or Amazon Bedrock for
+Claude Code and Codex, Google Cloud's Vertex AI for Claude Code and Gemini CLI, and Microsoft
+Foundry for Claude Code. Moontors itself is free.
 
 **Can several agents work on the same repository?**
 Yes. Each session can work in its own git worktree, on a branch of its own if you name one, so
@@ -183,13 +186,14 @@ encrypted so the server can't read them.
 
 ## Privacy and terms
 
-Moontors has no account, telemetry or tracking. The [Privacy Policy](PRIVACY.md) says exactly what
-it keeps, where, and what reaches the internet. Use of Moontors is governed by the
+Moontors needs no account, and counts how it's used and its errors, never your code, prompts or
+sessions, which you can turn off. The [Privacy Policy](PRIVACY.md) says exactly what it keeps,
+where, what it sends, and what reaches the internet. Use of Moontors is governed by the
 [Terms of Use](TERMS.md). The open-source software Moontors includes, and its licenses, are listed
 in the [third-party notices](https://moontors.com/policies/notices/).
 
 ---
 
 <sub>© 2026 Moontors. All rights reserved. Moontors is an independent agentic development
-environment, not affiliated with or endorsed by Anthropic, OpenAI or Google. Claude Code, Codex and
-Gemini CLI are trademarks of their respective owners.</sub>
+environment, not affiliated with or endorsed by Anthropic, OpenAI, Google or xAI. Claude Code,
+Codex, Gemini CLI and Grok Build are trademarks of their respective owners.</sub>

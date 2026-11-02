@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 2 November 2026
+Last updated: 3 November 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI and
 Grok Build) on your own computer, with a phone app for Android and iPhone that shows and works with
@@ -660,7 +660,8 @@ This policy also covers Moontors' website, moontors.com:
   - your browser and its version, your system, the size of your screen and window, your language and
     your time zone;
   - how fast the page loaded;
-  - a download or store badge you click, and where on the page it was;
+  - a download or store badge you click: which file or store it was, where on the page it was, and
+    whether it was the download suggested for your system;
   - that the pricing came into view;
   - a docs search that found nothing, its words lowercased, with no digits or email address;
   - a missing page's address, the same way;

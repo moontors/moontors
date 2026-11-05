@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 3 November 2026
+Last updated: 5 November 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI and
 Grok Build) on your own computer, with a phone app for Android and iPhone that shows and works with
@@ -21,7 +21,8 @@ agent, which the agent may pass on to its vendor, is described under "What conne
 internet".
 
 - **In a `.moontors` folder in your home folder:**
-  - your sessions (their transcripts and settings), the board's layout and your projects, in
+  - your sessions (their transcripts and settings), the board's layout, your projects and the
+    folders you've trusted for the agents, in
     Moontors' database. When an update changes the database, Moontors first copies it as it was,
     on the new version's first start, and keeps that backup beside it
     (`moontors.db.v<number>-<time>.bak`), in place of any copy an earlier update kept;
@@ -44,6 +45,14 @@ internet".
   - for a Claude Code session given a plugin with secrets, a private file holding them (see "Your
     own agents' secrets" below), deleted when that run of the agent ends;
   - the worktrees Moontors makes for sessions that work on their own branch;
+  - when the background service makes way for a newer version's, or restarts to update, the
+    terminals that were running: each one's folder, name and size, and what it showed with its
+    scrollback, in a file only you can read, which the next start reads and deletes at once.
+    **Remove Moontors' Data…** keeps none;
+  - the MCP servers you add in Moontors for one project's folder or for all projects, in the same
+    database: each one's name, the agents and the folder it's for, and its command and arguments or
+    its URL, with the names its environment variables and headers are set under, never their values,
+    until you remove it;
   - the phones you paired: each one's name, whether it's an iPhone or Android, when it paired and
     last connected, and a hash of the token it signs in with, never the token itself; and in a
     `phone` folder, the private key and certificate your computer proves itself to your phones
@@ -65,10 +74,17 @@ internet".
     project or resource it goes with), until you sign out of that provider in Moontors;
   - an agent's sign-in made through Moontors, when the agent keeps its sign-in there (as Claude
     Code does on macOS);
+  - the values of each MCP server you add in Moontors for one project's folder or for all projects
+    (its environment variables or its headers), one entry for each server, until you remove the
+    server;
   - your Moontors account's sign-in on this computer, if you signed in: the server's token for it,
     and the account as it was last read (its id, email, sign-in methods, plan and what the plan
     gives, its Pro subscription's state, monthly or yearly, when it renews or ends and until when
     its first payment may be refunded, and whether Pro is on sale for it), until you sign out.
+- **In a project's own files, only when you add an MCP server to that project:** the server, its
+  values included, in the agent's own project file (such as `.mcp.json`), where everyone who opens
+  the project shares it, and which Moontors changes again only to remove that server. Moontors
+  keeps none of it.
 - **In the app's own folder** (`~/Library/Application Support/Moontors` on macOS,
   `%APPDATA%\Moontors` on Windows, and `~/.config/Moontors` on Linux, or under `$XDG_CONFIG_HOME`):
   the window's preferences, the session last shown, and the caches the app's window keeps. On
@@ -120,13 +136,16 @@ left behind is deleted when the agent next starts.
 - **Sign out**, on **Profile**'s **Account** tab in Moontors, ends this computer's sign-in at
   Moontors' server and removes it from the keychain, and **Delete account…** there deletes the
   account from the server (see "Your Moontors account").
+- Removing an MCP server you added in Moontors removes it from Moontors' database and its values
+  from the keychain; removing one from a project's own file takes it out of that file.
 - Signing out of a provider in Moontors removes the API key or cloud credentials you gave it from
   the keychain, and signs the agent out, which removes the sign-in it kept (such as Claude Code's
   keychain entry, Codex's and Grok Build's `auth.json`, or Gemini CLI's credentials and its record
   of which Google account signed in).
 - To remove everything Moontors keeps, choose **Help → Remove Moontors' Data…** in Moontors. It
   lists what it will delete first, including any worktree with uncommitted changes. Then it signs
-  out of each provider and of your Moontors account, removes Moontors' keychain entries, stops the
+  out of each provider and of your Moontors account, removes Moontors' keychain entries (the MCP
+  servers' values among them), stops the
   background service, deletes the folders listed above (on macOS, its preferences and saved window
   state too) and quits. It removes links to your own folders as links, never following them. It
   leaves your repositories' branches and Git's worktree records (step 3 below), the Codex sandbox
@@ -145,9 +164,11 @@ left behind is deleted when the agent next starts.
      Windows PowerShell 5.1's `Remove-Item -Recurse`) would follow them and delete your own files.
   3. In each repository you used, run `git worktree prune`, then delete the branches you no
      longer want.
-  4. Signing out removes Moontors' keychain entries. If you couldn't sign out first: the entry
-     named `moontors` holds the API keys you gave Moontors, and the cloud sign-ins you chose for
-     Claude Code or Gemini CLI (one for each provider), the entry named `moontors-account` holds
+  4. Signing out removes Moontors' keychain entries, but not the MCP servers' values. If you
+     couldn't sign out first, or for those: the entry named `moontors` holds the API keys you gave
+     Moontors, and the cloud sign-ins you chose for Claude Code or Gemini CLI (one for each
+     provider), and the values of each MCP server you added (one for each server, its account
+     starting `mcp/`), the entry named `moontors-account` holds
      your Moontors account's sign-in on this computer, and Claude Code's sign-in through Moontors
      is an entry named `Claude Code-credentials-` followed by a short code, one for each Claude
      configuration folder. The entry named exactly `Claude Code-credentials` is your own Claude
@@ -273,11 +294,11 @@ yours, and PostHog keeps no profile of you.
 - **Where you are:** PostHog finds the country and continent from your IP address, then discards the
   address, and keeps no city or finer place.
 - **Turning it off:** in the desktop app, **Settings → Privacy**; in the phone app, the Accounts
-  sheet, or the pairing screen before it's paired. Each says so once, the first time it runs. Off,
-  nothing more is sent from that app, what was still waiting to go is dropped (but for a crash already
-  caught on an Android phone, which waits, as above), and its random id is forgotten, so turning it
-  on again starts a new one. On your computer, `DO_NOT_TRACK=1` in the environment Moontors starts
-  in, or in your shell's startup files, keeps it off whatever the switch says.
+  sheet, or the pairing screen before it's paired. Off, nothing more is sent from that app, what was
+  still waiting to go is dropped (but for a crash already caught on an Android phone, which waits,
+  as above), and its random id is forgotten, so turning it on again starts a new one. On your
+  computer, `DO_NOT_TRACK=1` in the environment Moontors starts in, or in your shell's startup
+  files, keeps it off whatever the switch says.
 - **How long:** PostHog keeps them for up to 12 months, then deletes them.
 - **Why:** our legitimate interest (the GDPR's article 6(1)(f)) in seeing how Moontors is used and
   what goes wrong, so we can fix and improve it. The switch is your objection, and it takes effect at

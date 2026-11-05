@@ -73,8 +73,9 @@ keep working when the window is closed.
 - **The agents' own commands.** Each agent's slash commands work in Moontors, apart from those
   that only make sense in a terminal, along with `/rewind`, `/compact`, side questions, subtasks,
   forks, `/export` and `@` file mentions.
-- **Your setup, untouched.** Your agents' settings, MCP servers, skills and commands reach
-  Moontors' sessions, and Moontors never writes your own configuration files.
+- **Your setup, as it is.** Your agents' settings, MCP servers, skills and commands reach Moontors'
+  sessions, and Moontors changes your configuration files only when you add an MCP server to a
+  project or remove one.
 - **Usage at a glance.** A context meter on every card, token usage, and your account's limits,
   with a ring by Profile for each one near its end.
 - **Private by design.** No Moontors account needed. Moontors keeps your sessions on your computer,

@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 5 November 2026
+Last updated: 6 November 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI and
 Grok Build) on your own computer, with a phone app for Android and iPhone that shows and works with
@@ -679,7 +679,7 @@ This policy also covers Moontors' website, moontors.com:
   - the page's address, keeping of its query only a campaign's tags, those named `utm_` and on;
   - where you came from, by its site alone;
   - your browser and its version, your system, the size of your screen and window, your language and
-    your time zone;
+    the country your time zone is in;
   - how fast the page loaded;
   - a download or store badge you click: which file or store it was, where on the page it was, and
     whether it was the download suggested for your system;
@@ -690,8 +690,8 @@ This policy also covers Moontors' website, moontors.com:
     message.
 - PostHog gets your IP address with each request, as any site's host does. It counts a day's
   visitors by a hash of your IP address, your browser, the site and a salt it deletes each day, then
-  discards the address. No location is kept, no profile of you is made, and nothing links your
-  visits from one day to the next.
+  discards the address, finding no place from it. The only place kept is the country your time zone
+  is in; no profile of you is made, and nothing links your visits from one day to the next.
 - A browser that sends Do Not Track or Global Privacy Control sends nothing and loads nothing of
   PostHog's, and the pay pages never do.
 - The site counts visits for our legitimate interest in knowing which pages people read and what

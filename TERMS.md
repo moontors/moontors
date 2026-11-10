@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last updated: 1 November 2026
+Last updated: 9 November 2026
 
 These terms are an agreement between you and the maker of Moontors ("we", "us") about your use of
 the Moontors desktop app and the Moontors apps for iPhone and Android ("Moontors"). By installing or
@@ -109,8 +109,8 @@ which is nothing if you didn't have Pro.
 
 ## Updates and changes
 
-The desktop app checks GitHub for a new version when it starts and every 4 hours; there's no setting
-to turn this off. Where it can install a new version itself, it downloads it in the background and
+The desktop app checks GitHub for a new version when it starts and every 4 hours, and sooner again
+after a check that fails on the network; there's no setting to turn this off. Where it can install a new version itself, it downloads it in the background and
 installs it when you choose; where it can't, it offers the version's download page instead. Its
 Privacy Policy says what these checks send. The phone apps update through Google Play and the App
 Store.

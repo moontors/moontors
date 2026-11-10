@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 6 November 2026
+Last updated: 10 November 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI and
 Grok Build) on your own computer, with a phone app for Android and iPhone that shows and works with
@@ -197,8 +197,8 @@ left behind is deleted when the agent next starts.
 
 Moontors itself connects only to:
 
-- **GitHub,** to check for a newer version of Moontors when it starts and every 4 hours, and to
-  download one. GitHub sees your computer's IP address and the request, as with any download,
+- **GitHub,** to check for a newer version of Moontors when it starts and every 4 hours, sooner
+  again after a check that failed on the network, and to download one. GitHub sees your computer's IP address and the request, as with any download,
   under GitHub's own privacy policy. Moontors sends no identifier with it.
 - **The npm registry** (registry.npmjs.org), to download the agents' own programs the first time
   you use each one, and when Moontors moves to a newer version of them. npm sees your IP address.
@@ -263,12 +263,16 @@ reports of their errors, so we can see what to improve and what breaks. Each app
 a random id for the install, never tied to your Moontors account, your email or any other id of
 yours, and PostHog keeps no profile of you.
 
-- **What the desktop app sends:** Moontors installed, updated, and opened on a day; a session
-  started, by its agent, mode and model, whether in a worktree and whether from the phone; a mode or
-  a model chosen; the most sessions running at once on a day, as a range; each feature used on a day;
-  an agent or the Moontors account signed in, Upgrade clicked, and the checkout opened; a turn that
+- **What the desktop app sends:** Moontors installed, updated, and opened on a day; a project
+  added; an agent's install finished or failed, by its agent, whether it was an update, and why one
+  failed (by its code and the kind of failure); a session started, by its agent, mode and model,
+  whether in a worktree and whether from the phone; a mode or a model chosen; the most sessions
+  running at once on a day, as a range; each feature used on a day; an agent or the Moontors account
+  signed in, and an agent's sign-in that failed or was stopped, by its agent, the way it was signing
+  in and its code; Upgrade clicked, and the checkout opened; a turn that
   ended on an error, by its code; an agent, a window or Moontors itself that crashed, and an update
-  that failed; and an error in Moontors' own code, by its kind and where in that code it was. With
+  that failed, by where and why (the network, by its error's name, the status GitHub answered, a
+  feed that couldn't be read, or no release found); and an error in Moontors' own code, by its kind and where in that code it was. With
   each: Moontors' version, your computer's system, its version and chip, and your Moontors account's
   plan. A model is named only on its vendor's own route (Anthropic's, OpenAI's, Google's or xAI's),
   and only by the vendor's own name for it; on a cloud, a gateway, another endpoint or a custom model

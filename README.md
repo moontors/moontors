@@ -50,11 +50,10 @@ keep working when the window is closed.
 - **Keeps working without you.** Sessions run in a background service, not in the window, so they
   carry on when you close it. While Moontors is open, a desktop notification tells you when a
   session needs you or runs into trouble.
-- **Your sessions on your phone.** The [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) or the [iPhone app](https://apps.apple.com/app/id6824488067) pairs with Moontors on your computer
+- **Your sessions on your phone.** The [phone app](https://play.google.com/store/apps/details?id=com.moontors.mobile), on Android now and the iPhone soon, pairs with Moontors on your computer
   once, by scanning the code it shows or typing it, then shows the board and every session: follow
   them, answer their questions and permission requests, and reply, away from your desk. It reaches
-  your computer directly, on the same network or through Tailscale, or, with Moontors Pro, from
-  anywhere through Moontors' relay, which passes its encrypted link on without reading it.
+  your computer directly, on the same network or through Tailscale.
 - **You decide what agents may do.** Permission modes from Manual to Bypass, changed as you go,
   with Allow and Deny right in the transcript.
 - **A worktree per task.** A session can work in its own git worktree, on a new branch if you name
@@ -95,9 +94,10 @@ Get the newest version from the **[latest release](https://github.com/moontors/m
 
 Moontors downloads and verifies each agent's own program the first time you use it. You'll also
 want [git](https://git-scm.com) 2.23 or later: Moontors uses it for the Git view and worktree
-sessions, and on Windows Claude Code needs [Git for Windows](https://gitforwindows.org).
+sessions. On Windows that's [Git for Windows](https://gitforwindows.org), which also gives Claude
+Code its Bash; without it, Claude Code runs commands in PowerShell.
 
-On your phone, get **[Moontors for Android](https://play.google.com/store/apps/details?id=com.moontors.mobile)** from Google Play or **[Moontors for iPhone](https://apps.apple.com/app/id6824488067)** from the App Store, and pair it from **Phones**
+On your phone, get **[Moontors for Android](https://play.google.com/store/apps/details?id=com.moontors.mobile)** from Google Play (Moontors for iPhone is coming soon to the App Store), and pair it from **Phones**
 in Moontors on your computer.
 
 ### First launch
@@ -122,12 +122,12 @@ in Moontors on your computer.
 3. **Follow along on the board.** Open any session to read its full transcript, answer its
    questions, or review its changes.
 4. **Take it with you, if you like:** choose **Phones**, then **Pair a phone**, and pair the
-   [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) or the [iPhone app](https://apps.apple.com/app/id6824488067) by the code your computer shows.
+   [phone app](https://play.google.com/store/apps/details?id=com.moontors.mobile) by the code your computer shows.
 
 ## Updates
 
-Moontors checks for a new version when it starts and every 4 hours, and downloads it in the
-background. When it's ready, Moontors offers **Restart to update**. Choose it when it suits you:
+Moontors checks for a new version when it starts and every 4 hours, sooner again after a check
+that failed on the network, and downloads it in the background. When it's ready, Moontors offers **Restart to update**. Choose it when it suits you:
 Moontors waits for running work to finish, installs the update and reopens. It says first if that
 ends a running terminal, and asks before it discards unsaved edits. To look at once, choose
 **Check for Updates…**: in the Moontors menu on macOS, and in Help on Windows and Linux.
@@ -150,9 +150,7 @@ own account and using your own settings, MCP servers and skills, with a desktop 
 
 **Is Moontors free?**
 Yes. Moontors is free to use, with no account. You use your own plan or API key with each agent's
-vendor, or a cloud that runs the agent. Pro adds your phone's notifications and your phone
-reaching your computer from anywhere, for a Moontors account (see
-[Pricing](https://moontors.com/#pricing)).
+vendor, or a cloud that runs the agent.
 
 **What do I need to use it?**
 An account with the agent's vendor, or a cloud that runs it: a Claude subscription or an Anthropic
@@ -167,7 +165,7 @@ agents don't step on each other's changes, and you review and merge each branch 
 anyone's.
 
 **Is there a phone app?**
-Yes, for Android, on [Google Play](https://play.google.com/store/apps/details?id=com.moontors.mobile), and for the iPhone, on the [App Store](https://apps.apple.com/app/id6824488067). It pairs with Moontors on your computer and works on
+Yes, for Android, on [Google Play](https://play.google.com/store/apps/details?id=com.moontors.mobile), and the iPhone app is coming soon to the App Store. It pairs with Moontors on your computer and works on
 the same sessions: the board, the transcripts, answering questions and permission requests, and
 replying.
 
@@ -175,8 +173,8 @@ replying.
 No. Each agent talks to its own vendor, to the services and MCP servers you set it up with, and to
 any site its own tools reach, as it would in your terminal, and Moontors keeps your sessions on your
 computer. Moontors' server holds only what an optional Moontors account needs, never your code or
-your sessions: your phone's link through its relay, and its notifications, with Moontors Pro, are
-encrypted so the server can't read them.
+your sessions: your phone's link through its relay, and its notifications, are encrypted so the
+server can't read them.
 
 ## Feedback and support
 

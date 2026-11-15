@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Many agents. Every project. One board.</strong><br>
-  Run Claude Code, Codex, Gemini CLI and Grok Build side by side, across all your projects, on macOS, Windows and Linux. A free agentic development environment (ADE), built around your agents rather than your files, that keeps all of them in view and working in the background.
+  Run Claude Code, Codex, Gemini CLI, Grok Build and OpenCode side by side, across all your projects, on macOS, Windows and Linux. A free agentic development environment (ADE), built around your agents rather than your files, that keeps all of them in view and working in the background.
 </p>
 
 <p align="center">
@@ -28,21 +28,21 @@
 ---
 
 Moontors is an **ADE, an agentic development environment**: a desktop app for macOS, Windows and
-Linux where you direct AI coding agents instead of typing every line yourself. It runs
-**Claude Code**, **Codex**, **Gemini CLI** and **Grok Build** side by side. Every session sits on
-one board, streaming its work live, so you can follow them all, answer the one that needs you, and
-review what each one changed without leaving the app. A background service runs the agents, so they
-keep working when the window is closed.
+Linux where you direct AI coding agents instead of typing every line yourself. It runs **Claude
+Code**, **Codex**, **Gemini CLI**, **Grok Build** and **OpenCode** side by side. Every session sits
+on one board, streaming its work live, so you can follow them all, answer the one that needs you,
+and review what each one changed without leaving the app. A background service runs the agents, so
+they keep working when the window is closed.
 
 > **Early preview.** Moontors is at 0.x. It's ready for daily use, but expect rough edges, and
 > please [tell us](https://github.com/moontors/moontors/issues/new/choose) when you find one.
 
 ## Features
 
-- **Every session on one board.** Claude Code, Codex, Gemini CLI and Grok Build sessions side by
-  side, each card showing its transcript live. Sort them into your own sections; the header counts
-  the sessions running, waiting for you, with an action denied or an error, and a click on one goes
-  to the next.
+- **Every session on one board.** Claude Code, Codex, Gemini CLI, Grok Build and OpenCode sessions
+  side by side, each card showing its transcript live. Sort them into your own sections; the header
+  counts the sessions running, waiting for you, with an action denied or an error, and a click on
+  one goes to the next.
 - **Talk to agents as you would to people.** Reply to any row of a transcript, send while the agent
   works, what it can't take yet waiting in the session's queue, have the agent rephrase your draft
   first, and let your sessions message each other: a Claude Code session can hand work to a Codex
@@ -112,16 +112,24 @@ in Moontors on your computer.
   - On systems that block the user namespaces Chromium's sandbox needs, such as Ubuntu 24.04, the
     AppImage runs with Chromium's sandbox off, and says so once. The `.deb` keeps the sandbox on.
 
+The first time it opens, Moontors opens on a welcome session, ready for your first message:
+OpenCode on its free models, with no sign-in. Its transcript first says what the free models mean,
+with **Sign in to OpenCode** beside it for your own account. Under that are three prompts to try:
+**Make a web page**, **Find an idea** and **What can you do?**. Each sends its words for you as
+your first message, and they're gone once you've sent one, theirs or your own.
+
 ## Getting started
 
-1. **Sign in to a provider:** with your Claude, ChatGPT or grok.com account in the browser, with an
+1. **Try the welcome session:** Moontors opens on one the first time, on OpenCode's free models,
+   with no sign-in. Pick one of its three prompts, or type a task into it and send.
+2. **Sign in to a provider:** with your Claude, ChatGPT or grok.com account in the browser, with an
    API key, which Moontors keeps in your system's keychain, or through Amazon Bedrock, Google
    Cloud's Vertex AI or Microsoft Foundry where the agent offers it. Gemini CLI takes a Gemini API
    key or Vertex AI, as Google doesn't let personal accounts sign in to it through the browser.
-2. **Create a session:** pick a project folder, choose an agent and a model, and give it a task.
-3. **Follow along on the board.** Open any session to read its full transcript, answer its
+3. **Create a session:** pick a project folder, choose an agent and a model, and give it a task.
+4. **Follow along on the board.** Open any session to read its full transcript, answer its
    questions, or review its changes.
-4. **Take it with you, if you like:** choose **Phones**, then **Pair a phone**, and pair the
+5. **Take it with you, if you like:** choose **Phones**, then **Pair a phone**, and pair the
    [phone app](https://play.google.com/store/apps/details?id=com.moontors.mobile) by the code your computer shows.
 
 ## Updates
@@ -144,7 +152,7 @@ It's where you work with AI coding agents rather than only an editor. You start 
 follow their progress, answer their questions and permission requests, and review their changes.
 Moontors does that for several agents at once, from different vendors, in one window.
 
-**Does Moontors replace Claude Code, Codex, Gemini CLI or Grok Build?**
+**Does Moontors replace Claude Code, Codex, Gemini CLI, Grok Build or OpenCode?**
 No. Moontors runs each vendor's own official agent, so you get the same agent, signed in with your
 own account and using your own settings, MCP servers and skills, with a desktop app around it.
 
@@ -155,9 +163,10 @@ vendor, or a cloud that runs the agent.
 **What do I need to use it?**
 An account with the agent's vendor, or a cloud that runs it: a Claude subscription or an Anthropic
 API key for Claude Code, a ChatGPT plan or an OpenAI API key for Codex, a Gemini API key for
-Gemini CLI, and a grok.com account or an xAI API key for Grok Build; or Amazon Bedrock for
-Claude Code and Codex, Google Cloud's Vertex AI for Claude Code and Gemini CLI, and Microsoft
-Foundry for Claude Code. Moontors itself is free.
+Gemini CLI, a grok.com account or an xAI API key for Grok Build, and for OpenCode, none for its
+free models or an account with the model provider you use with it; or Amazon Bedrock for Claude
+Code and Codex, Google Cloud's Vertex AI for Claude Code and Gemini CLI, and Microsoft Foundry for
+Claude Code. Moontors itself is free.
 
 **Can several agents work on the same repository?**
 Yes. Each session can work in its own git worktree, on a branch of its own if you name one, so
@@ -194,5 +203,5 @@ in the [third-party notices](https://moontors.com/policies/notices/).
 ---
 
 <sub>© 2026 Moontors. All rights reserved. Moontors is an independent agentic development
-environment, not affiliated with or endorsed by Anthropic, OpenAI, Google or xAI. Claude Code,
-Codex, Gemini CLI and Grok Build are trademarks of their respective owners.</sub>
+environment, not affiliated with or endorsed by Anthropic, OpenAI, Google, xAI or Anomaly. Claude
+Code, Codex, Gemini CLI, Grok Build and OpenCode are trademarks of their respective owners.</sub>

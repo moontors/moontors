@@ -1,18 +1,18 @@
 # Privacy Policy
 
-Last updated: 10 November 2026
+Last updated: 12 November 2026
 
-Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI and
-Grok Build) on your own computer, with a phone app for Android and iPhone that shows and works with
-the same sessions (see "The phone app"). This policy says what Moontors, its phone app, and its
+Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI, Grok Build
+and OpenCode) on your own computer, with a phone app for Android and iPhone that shows and works
+with the same sessions (see "The phone app"). This policy says what Moontors, its phone app, and its
 website moontors.com (see "The website") do with your information. In short: Moontors keeps what it
 stores on your computer and your phone, and gives the agents only what they need to do your work,
 listed below. Unless you turn it off, the desktop and phone apps send PostHog counts of how they're
-used and reports of their errors, under a random id for the install, never tied to your account,
-and never your prompts, code, files or names (see "Usage numbers and error reports"). A Moontors
-account is yours to make or not: Moontors works without one, and one keeps your email, how you sign
-in and, if your plan gives push or reaching your computer from anywhere, your phones' push tokens and
-your computers' and phones' names (see "Your Moontors account").
+used and reports of their errors, under a random id for the install, never tied to your account, and
+never your prompts, code, files or names (see "Usage numbers and error reports"). A Moontors account
+is yours to make or not: Moontors works without one, and one keeps your email, how you sign in and,
+if your plan gives push or reaching your computer from anywhere, your phones' push tokens and your
+computers' and phones' names (see "Your Moontors account").
 
 ## What Moontors keeps, and where
 
@@ -120,12 +120,14 @@ left behind is deleted when the agent next starts.
 
 - Deleting a session in Moontors deletes it from Moontors' database, and overwrites the space it
   took there, so its text doesn't linger in the file. The files attached to its messages are deleted
-  with it; if the disk refuses, they go when the background service next starts. The backup copy from the latest update that
-  changed the database may still hold it, until the next such update replaces that copy or you
-  delete it. Where the agent can, deleting a session also deletes the agent's own copy, and
-  Moontors says before you confirm whether it will. Gemini CLI also keeps your prompts in its
-  project's own log, and Grok Build in its own prompt history, which deleting a session leaves in
-  place. Neither reaches what the agent's vendor keeps on its own servers.
+  with it; if the disk refuses, they go when the background service next starts. The backup copy
+  from the latest update that changed the database may still hold it, until the next such update
+  replaces that copy or you delete it. Where the agent can, deleting a session also deletes the
+  agent's own copy, and Moontors says before you confirm whether it will. Gemini CLI also keeps your
+  prompts in its project's own log, Grok Build in its own prompt history, and OpenCode its snapshots
+  of your project for undo, its logs and the output of its long tool calls, in your own OpenCode
+  folders, which deleting a session leaves in place. None of this reaches what the agent's vendor
+  keeps on its own servers.
 - Removing a phone in **Phones** deletes Moontors' record of it, and disconnects it; a phone that's
   connected then forgets your computer, and the drafts it kept. **Forget all phones…** removes
   every phone and also replaces your computer's key, so no phone paired before can reach it. A
@@ -214,14 +216,15 @@ LFS), which may connect to the servers they name, as they would for any checkout
 command opens (for example to upgrade your plan), and any web link you click in Moontors open in
 your browser, which connects to that site.
 
-**The agents are separate programs.** When you use Claude Code, Codex, Gemini CLI or Grok Build
-through Moontors, your prompts, the files the agent reads and its replies go between that agent
-and its vendor (Anthropic, OpenAI, Google or xAI), or the cloud service you set the agent up with
-(such as Amazon Bedrock, Google Vertex AI or Microsoft Foundry), and to any MCP servers you add to
-it, and its own tools (such as web fetches, shell commands and hooks) reach whatever sites they're
-pointed at, exactly as when you use the agent on its own. That is governed by those services' own
-terms and privacy policies, and by the agent's own settings, including any usage data the agent
-itself sends.
+**The agents are separate programs.** When you use Claude Code, Codex, Gemini CLI, Grok Build or
+OpenCode through Moontors, your prompts, the files the agent reads and its replies go between that
+agent and its vendor (Anthropic, OpenAI, Google or xAI), the model provider OpenCode runs on
+(Anomaly's, for OpenCode's free models and the OpenCode Console's, unless you set it up with
+another), or the cloud service you set the agent up with (such as Amazon Bedrock, Google Vertex AI
+or Microsoft Foundry), and to any MCP servers you add to it, and its own tools (such as web fetches,
+shell commands and hooks) reach whatever sites they're pointed at, exactly as when you use the agent
+on its own. That is governed by those services' own terms and privacy policies, and by the agent's
+own settings, including any usage data the agent itself sends.
 
 What Moontors gives an agent goes only to that agent, which may pass it on to its vendor as above:
 
@@ -250,8 +253,8 @@ What Moontors gives an agent goes only to that agent, which may pass it on to it
   that session's whole conversation, the agent's own review's included, which Codex uploads from
   your account as its own `/feedback` does. Moontors asks Codex to send one only when you press
   Send, after saying what goes;
-- Moontors' name and version, which Codex, Gemini CLI and Grok Build receive when Moontors starts
-  them. Codex names Moontors to OpenAI as the app it runs in.
+- Moontors' name and version, which Codex, Gemini CLI, Grok Build and OpenCode receive when
+  Moontors starts them. Codex names Moontors to OpenAI as the app it runs in.
 
 Moontors receives from the agents only what they report to it (their replies, models, usage and
 limits), and keeps it on your computer.

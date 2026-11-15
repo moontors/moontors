@@ -72,6 +72,7 @@ body:
         - Codex
         - Gemini CLI
         - Grok Build
+        - OpenCode
         - More than one, or not about an agent
     validations:
       required: true

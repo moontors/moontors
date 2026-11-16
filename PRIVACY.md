@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 15 November 2026
+Last updated: 16 November 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI, Grok Build
 and OpenCode) on your own computer, with a phone app for Android and iPhone that shows and works
@@ -208,6 +208,10 @@ Moontors itself connects only to:
   data is removed: a tiny prompt of Moontors' own to OpenCode's free default model, signed out, to
   check that it answers from your network before Moontors makes its welcome session on it. Nothing
   of yours goes with it. Anomaly, which runs OpenCode's models, sees your IP address and the request.
+- **An MCP server you add,** only when you press **Check connection** in the form that adds it or
+  on its row, or as you add or edit it there: Moontors connects to the URL you gave, with the headers
+  you typed, or runs the command you gave on your computer, to see whether it answers, as the agent
+  would. The server sees your IP address and those headers. Nothing else of yours goes with it.
 - **Moontors' server** (api.moontors.com), only while you're signed in to a Moontors account, or
   signing in to one; see "Your Moontors account".
 - **PostHog** (eu.i.posthog.com), with the usage numbers and error reports, unless you turn them off;
@@ -305,11 +309,11 @@ yours, and PostHog keeps no profile of you.
 - **Where you are:** PostHog finds the country and continent from your IP address, then discards the
   address, and keeps no city or finer place.
 - **Turning it off:** in the desktop app, **Settings → Privacy**; in the phone app, the Accounts
-  sheet, or the pairing screen before it's paired. Off, nothing more is sent from that app, what was
-  still waiting to go is dropped (but for a crash already caught on an Android phone, which waits,
-  as above), and its random id is forgotten, so turning it on again starts a new one. On your
-  computer, `DO_NOT_TRACK=1` in the environment Moontors starts in, or in your shell's startup
-  files, keeps it off whatever the switch says.
+  sheet, or the one in **See a demo** before it's paired. Off, nothing more is sent from that app,
+  what was still waiting to go is dropped (but for a crash already caught on an Android phone,
+  which waits, as above), and its random id is forgotten, so turning it on again starts a new one.
+  On your computer, `DO_NOT_TRACK=1` in the environment Moontors starts in, or in your shell's
+  startup files, keeps it off whatever the switch says.
 - **How long:** PostHog keeps them for up to 12 months, then deletes them.
 - **Why:** our legitimate interest (the GDPR's article 6(1)(f)) in seeing how Moontors is used and
   what goes wrong, so we can fix and improve it. The switch is your objection, and it takes effect at
@@ -744,9 +748,11 @@ about you, and:
 - **object** to what the server keeps for our legitimate interest, its log and its count of tries.
 
 The usage numbers and error reports aren't tied to your account or your email: we can't find an
-app's by either. To object to them, turn them off in the app (see "Usage numbers and error reports"), which
-also forgets the app's random id, so nothing sent before can be linked to what it sends after (but
-for an Android phone's crash caught before and sent later, which keeps the id it had then).
+app's by either. To object to them, turn them off in the app: in the desktop app's **Settings →
+Privacy**, or in the phone app's Accounts sheet, or the one in **See a demo** before it's paired
+(see "Usage numbers and error reports"). That also forgets the app's random id, so nothing sent
+before can be linked to what it sends after (but for an Android phone's crash caught before and
+sent later, which keeps the id it had then).
 
 Ask at moontors@moontors.com, from your account's email address so we know it's yours. You can also
 complain to a data protection supervisory authority, such as the one where you live or work.

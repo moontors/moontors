@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 12 November 2026
+Last updated: 15 November 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI, Grok Build
 and OpenCode) on your own computer, with a phone app for Android and iPhone that shows and works
@@ -204,6 +204,10 @@ Moontors itself connects only to:
   under GitHub's own privacy policy. Moontors sends no identifier with it.
 - **The npm registry** (registry.npmjs.org), to download the agents' own programs the first time
   you use each one, and when Moontors moves to a newer version of them. npm sees your IP address.
+- **OpenCode's free models** (opencode.ai), once, on Moontors' first launch or the first after its
+  data is removed: a tiny prompt of Moontors' own to OpenCode's free default model, signed out, to
+  check that it answers from your network before Moontors makes its welcome session on it. Nothing
+  of yours goes with it. Anomaly, which runs OpenCode's models, sees your IP address and the request.
 - **Moontors' server** (api.moontors.com), only while you're signed in to a Moontors account, or
   signing in to one; see "Your Moontors account".
 - **PostHog** (eu.i.posthog.com), with the usage numbers and error reports, unless you turn them off;

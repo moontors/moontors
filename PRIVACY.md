@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 19 November 2026
+Last updated: 21 November 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI, Grok Build
 and OpenCode) on your own computer, with a phone app for Android and iPhone that shows and works
@@ -16,9 +16,10 @@ computers' and phones' names (see "Your Moontors account").
 
 ## What Moontors keeps, and where
 
-Moontors keeps all of this on your computer, and never sends any of it to us. What it gives an
-agent, which the agent may pass on to its vendor, is described under "What connects to the
-internet".
+Moontors keeps all of this on your computer, and never sends any of it to us, but for the
+background service's log, which a bug report you send from Quick feedback carries unless you take
+it off (see "Quick feedback"). What it gives an agent, which the agent may pass on to its vendor, is
+described under "What connects to the internet".
 
 - **In a `.moontors` folder in your home folder:**
   - your sessions (their transcripts and settings), the board's layout, your projects and the
@@ -200,7 +201,9 @@ left behind is deleted when the agent next starts.
   error reports, which you can turn off, carry a random id for the install alone (see "Usage numbers
   and error reports"); beside it, no identifier but a Moontors account's own: its id, its computers'
   and phones' ids, its phones' push tokens and relay credentials, and the random id each call to its
-  server carries (see "Your Moontors account"). Once you turn a phone's notifications on, Firebase's
+  server carries (see "Your Moontors account"); and a random id your computer makes for its
+  Quick feedback reports alone, which the server counts them by (see "Quick feedback"). Once you
+  turn a phone's notifications on, Firebase's
   own software in the app sends Google what "Push notifications" says, which Moontors never sees.
 - No advertising, and nothing is sold or shared.
 
@@ -222,7 +225,8 @@ Moontors itself connects only to:
   you typed, or runs the command you gave on your computer, to see whether it answers, as the agent
   would. The server sees your IP address and those headers. Nothing else of yours goes with it.
 - **Moontors' server** (api.moontors.com), only while you're signed in to a Moontors account, or
-  signing in to one; see "Your Moontors account".
+  signing in to one, and when you send a report from Quick feedback; see "Your Moontors account"
+  and "Quick feedback".
 - **PostHog** (eu.i.posthog.com), with the usage numbers and error reports, unless you turn them off;
   see "Usage numbers and error reports".
 
@@ -333,6 +337,39 @@ yours, and PostHog keeps no profile of you.
 
 Moontors' server also sends PostHog counts of its own, its errors and its log's lines, never naming
 you (see "What reaches the server, and what it logs").
+
+## Quick feedback
+
+**Quick feedback**, at the top of Moontors' window and in its Help menu, sends us a bug report or a
+feature request, by email through Moontors' server. You don't need a Moontors account, and nothing
+goes until you press **Send**.
+
+- **What a report sends:** whether it's a bug report or a feature request, the words you wrote,
+  the files you added (screenshots and anything else), and, only if you give one, an email
+  address to reply to, which starts as your Moontors account's email when you're signed in and
+  which you can change or clear. A **bug report** also carries Moontors' logs, unless you take
+  them off: the background service's log of what went wrong and the one before it, which can name
+  your folders, files and sessions where something went wrong in them, and the last failure that
+  stopped it, under a line with Moontors' version, the commit it was built from, when it was built,
+  its channel and your computer's system, its version and chip. The logs show as a file in the
+  dialog, which you can open to read exactly what goes. A **feature request** carries no logs.
+- **With it:** a random id your computer made for its reports alone, kept in Moontors' database and
+  tied to nothing else of yours, which the server counts reports by, and your IP address, as with
+  any request.
+- **Where it goes:** Moontors' server mails the report from its own address to
+  feedback@moontors.com, through Resend, from its EU region in Ireland, the files attached and your
+  address, if you gave one, as the mail's reply address. ImprovMX, which receives mail for
+  moontors.com, forwards it to the developer's own mailbox. Resend and ImprovMX keep their records
+  of the mail under their own terms (Resend's
+  [data processing addendum](https://resend.com/legal/dpa), and ImprovMX's
+  [privacy policy](https://improvmx.com/privacy-policy/)).
+- **What the server keeps:** none of the report. It counts each one for a day, holding nothing of
+  it, so reports take no more than their share of the day's mail; and it counts each computer's id
+  and each address's reports in its memory alone, never stored, each for up to half a day after its
+  last, to limit how often one sends. Its log notes that a report went, by its kind and how many
+  files it carried, never its words, its files or an address.
+- **Why:** our legitimate interest (the GDPR's article 6(1)(f)) in hearing what goes wrong and
+  what you'd like, so we can fix and improve Moontors, which you choose to tell us by sending it.
 
 ## Your Moontors account
 

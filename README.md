@@ -41,23 +41,33 @@ they keep working when the window is closed.
 
 - **Every session on one board.** Claude Code, Codex, Gemini CLI, Grok Build and OpenCode sessions
   side by side, each card showing its transcript live. Sort them into your own sections; the header
-  counts the sessions running, waiting for you, with an action denied or an error, and a click on
-  one goes to the next.
+  counts the sessions running, waiting for you, with an action denied or an error, and finished but
+  not yet seen, and a click on one goes to the next.
+- **The board on its own screen.** For two screens, **Board in its own window** moves the board to a
+  window of its own, and this one keeps the session you're in: click a card there to show its
+  session here. Each window keeps its own board settings.
 - **Talk to agents as you would to people.** Reply to any row of a transcript, send while the agent
   works, what it can't take yet waiting in the session's queue, have the agent rephrase your draft
   first, and let your sessions message each other: a Claude Code session can hand work to a Codex
   session and hear back.
+- **Your words wait for you.** What you're writing stays with its session when you switch to
+  another, quitting asks first, and Up and Down bring back what you've sent.
+- **The whole transcript, always.** Every turn stays in the session, readable from its start,
+  however often the agent compacts its context.
 - **Keeps working without you.** Sessions run in a background service, not in the window, so they
   carry on when you close it. While Moontors is open, a desktop notification tells you when a
-  session needs you or runs into trouble.
-- **Your sessions on your phone.** The [phone app](https://play.google.com/store/apps/details?id=com.moontors.mobile), on Android now and the iPhone soon, pairs with Moontors on your computer
+  session needs you, runs into trouble or is done, or a whole group of sessions is, and it goes
+  once it no longer needs you.
+- **Your sessions on your phone.** The [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) or the [iPhone app](https://apps.apple.com/app/id6824488067) pairs with Moontors on your computer
   once, by scanning the code it shows or typing it, then shows the board and every session: follow
   them, answer their questions and permission requests, and reply, away from your desk. It reaches
   your computer directly, on the same network or through Tailscale.
 - **You decide what agents may do.** Permission modes from Manual to Bypass, changed as you go,
   with Allow and Deny right in the transcript.
-- **A worktree per task.** A session can work in its own git worktree, on a new branch if you name
-  one, with the files it needs copied in, and archiving it asks before anything is removed.
+- **A worktree per task.** Add a folder as a project, and its button starts a session in a click or
+  two, on the branch or worktree you pick. A session can work in its own git worktree, on a new
+  branch if you name one, with the files it needs copied in, and archiving it asks before anything
+  is removed.
 - **The Git view.** Each session's repository as a graph, every branch in a lane of its own and each
   agent's commit the moment it lands. Find a commit as you type, and see which commits git verified
   as signed. Check out, branch, merge, rebase, cherry-pick, tag, stash, fetch, pull and push from
@@ -66,15 +76,28 @@ they keep working when the window is closed.
   (Cmd+P, or Ctrl+P) finds a file by a few letters of its name, Find in Files searches and replaces
   across the folder, right-click menus make, move, copy, rename and delete files, and images, PDFs
   and more preview in their tab.
+- **A terminal beside the agent.** Shells in a session's folder, or a project's, in tabs that every
+  session working in that folder shares, and that keep running when you close the window.
+- **Notes.** Plain text of your own, kept on your computer and never in your project: one for every
+  project and session, one for each project and one for each session, side by side. The agents never
+  read them.
+- **A time tracker.** Time several tasks at once, keep past lists archived, and have a session's
+  agent start and stop a task's timer when you ask it to. Timers keep counting with the window
+  closed and across a restart, and your phone shows the same list.
 - **Review as you go.** The session's changes hunk by hunk in the Git view, to stage, discard and
-  commit, edits in the transcript coloured as the editor colours code, and a file editor that never
-  overwrites the agent's work, or yours, while the agent keeps working.
+  commit, edits in the transcript coloured as the editor colours code, and a file editor that
+  follows the agent's changes as it works, and asks instead of overwriting when you've both changed
+  a file.
 - **The agents' own commands.** Each agent's slash commands work in Moontors, apart from those
   that only make sense in a terminal, along with `/rewind`, `/compact`, side questions, subtasks,
   forks, `/export` and `@` file mentions.
 - **Your setup, as it is.** Your agents' settings, MCP servers, skills and commands reach Moontors'
   sessions, and Moontors changes your configuration files only when you add an MCP server to a
   project or remove one.
+- **Several accounts for each agent.** Sign each agent in with your own plan, API key or cloud, to
+  more than one account if you like, your team's and your own, and switch between them in Profile
+  or on your phone. Each session goes on with its conversation on the new account as soon as it's
+  at rest, never in the middle of a turn.
 - **Usage at a glance.** A context meter on every card, token usage, and your account's limits,
   with a ring by Profile for each one near its end.
 - **Private by design.** No Moontors account needed. Moontors keeps your sessions on your computer,
@@ -97,7 +120,7 @@ want [git](https://git-scm.com) 2.23 or later: Moontors uses it for the Git view
 sessions. On Windows that's [Git for Windows](https://gitforwindows.org), which also gives Claude
 Code its Bash; without it, Claude Code runs commands in PowerShell.
 
-On your phone, get **[Moontors for Android](https://play.google.com/store/apps/details?id=com.moontors.mobile)** from Google Play (Moontors for iPhone is coming soon to the App Store), and pair it from **Phones**
+On your phone, get **[Moontors for Android](https://play.google.com/store/apps/details?id=com.moontors.mobile)** from Google Play or **[Moontors for iPhone](https://apps.apple.com/app/id6824488067)** from the App Store, and pair it from **Phones**
 in Moontors on your computer.
 
 ### First launch
@@ -112,25 +135,29 @@ in Moontors on your computer.
   - On systems that block the user namespaces Chromium's sandbox needs, such as Ubuntu 24.04, the
     AppImage runs with Chromium's sandbox off, and says so once. The `.deb` keeps the sandbox on.
 
-The first time it opens, Moontors opens on a welcome session, ready for your first message:
-OpenCode on its free models, with no sign-in. Its transcript first says what the free models mean,
+The first time it opens, Moontors opens on a welcome session, ready for your first message,
+where OpenCode's free model answers from your network: OpenCode on its free models, with no
+sign-in. Its transcript first says what the free models mean,
 with **Sign in to OpenCode** beside it for your own account. Under that are three prompts to try:
 **Make a web page**, **Find an idea** and **What can you do?**. Each sends its words for you as
-your first message, and they're gone once you've sent one, theirs or your own.
+your first message, and they're gone once you've sent one, theirs or your own. OpenCode limits its
+free models for a whole network's address, so where the free model doesn't answer, as on an
+office's, a school's or a VPN's address that has reached the limit, or offline, Moontors makes no
+welcome session and doesn't try again at a later launch.
 
 ## Getting started
 
 1. **Try the welcome session:** Moontors opens on one the first time, on OpenCode's free models,
-   with no sign-in. Pick one of its three prompts, or type a task into it and send.
+   with no sign-in, where they answer from your network. Pick one of its three prompts, or type a task into it and send.
 2. **Sign in to a provider:** with your Claude, ChatGPT or grok.com account in the browser, with an
-   API key, which Moontors keeps in your system's keychain, or through Amazon Bedrock, Google
+   API key, which Moontors keeps encrypted in its own store, under a key in your system's keychain, or through Amazon Bedrock, Google
    Cloud's Vertex AI or Microsoft Foundry where the agent offers it. Gemini CLI takes a Gemini API
    key or Vertex AI, as Google doesn't let personal accounts sign in to it through the browser.
 3. **Create a session:** pick a project folder, choose an agent and a model, and give it a task.
 4. **Follow along on the board.** Open any session to read its full transcript, answer its
    questions, or review its changes.
 5. **Take it with you, if you like:** choose **Phones**, then **Pair a phone**, and pair the
-   [phone app](https://play.google.com/store/apps/details?id=com.moontors.mobile) by the code your computer shows.
+   [Android app](https://play.google.com/store/apps/details?id=com.moontors.mobile) or the [iPhone app](https://apps.apple.com/app/id6824488067) by the code your computer shows.
 
 ## Updates
 
@@ -165,8 +192,8 @@ An account with the agent's vendor, or a cloud that runs it: a Claude subscripti
 API key for Claude Code, a ChatGPT plan or an OpenAI API key for Codex, a Gemini API key for
 Gemini CLI, a grok.com account or an xAI API key for Grok Build, and for OpenCode, none for its
 free models or an account with the model provider you use with it; or Amazon Bedrock for Claude
-Code and Codex, Google Cloud's Vertex AI for Claude Code and Gemini CLI, and Microsoft Foundry for
-Claude Code. Moontors itself is free.
+Code and Codex, Google Cloud's Vertex AI for Claude Code, Codex and Gemini CLI, and Microsoft
+Foundry for Claude Code. Moontors itself is free.
 
 **Can several agents work on the same repository?**
 Yes. Each session can work in its own git worktree, on a branch of its own if you name one, so
@@ -174,7 +201,7 @@ agents don't step on each other's changes, and you review and merge each branch 
 anyone's.
 
 **Is there a phone app?**
-Yes, for Android, on [Google Play](https://play.google.com/store/apps/details?id=com.moontors.mobile), and the iPhone app is coming soon to the App Store. It pairs with Moontors on your computer and works on
+Yes, for Android, on [Google Play](https://play.google.com/store/apps/details?id=com.moontors.mobile), and for the iPhone, on the [App Store](https://apps.apple.com/app/id6824488067). It pairs with Moontors on your computer and works on
 the same sessions: the board, the transcripts, answering questions and permission requests, and
 replying.
 
@@ -183,10 +210,15 @@ No. Each agent talks to its own vendor, to the services and MCP servers you set 
 any site its own tools reach, as it would in your terminal, and Moontors keeps your sessions on your
 computer. Moontors' server holds only what an optional Moontors account needs, never your code or
 your sessions: your phone's link through its relay, and its notifications, are encrypted so the
-server can't read them.
+server can't read them. It also carries a Quick feedback report to Moontors' makers by email, with
+no account needed: what you write, the files you add, and with a bug report, Moontors' logs, which
+you can open first or take off.
 
 ## Feedback and support
 
+- **Quick feedback**, at the right end of the bar across the window's top or in the Help menu,
+  sends a bug report or a feature request from Moontors itself, with screenshots and files, and for
+  a bug, Moontors' logs. No account needed.
 - **Found a bug?** [Open an issue](https://github.com/moontors/moontors/issues/new/choose) and
   include the build line from Moontors' **About** window or `/status`. It names your exact version.
 - **Have an idea?** [Request a feature](https://github.com/moontors/moontors/issues/new/choose).

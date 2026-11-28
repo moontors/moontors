@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 21 November 2026
+Last updated: 27 November 2026
 
 Moontors is a desktop app for running AI coding agents (Claude Code, Codex, Gemini CLI, Grok Build
 and OpenCode) on your own computer, with a phone app for Android and iPhone that shows and works
@@ -409,7 +409,10 @@ there. Your sessions, your code and anything a session holds never reach the ser
   the next pairing window replaces it; and how many bytes your phones' links passed through the
   relay each day, for the caps, never what they held. A phone goes once it's unpaired or revoked, a
   computer with every phone it has once you forget all phones on it, and all of it once the account
-  is deleted.
+  is deleted. A phone you revoke from **Phones on your account** for another of your computers is
+  kept by its id with that computer until that computer takes the revoke, as it next reaches the
+  server, and is deleted then; one a computer never takes stays until that computer is removed or
+  the account is deleted.
 - From your first checkout for Pro, paid or not: your customer id at Paddle, which sells Pro, and
   the id of each checkout's transaction there, so that only a subscription bought through one of
   them is ever yours. Once you buy it: your subscription's id there, and its state as Paddle last told the server: whether
@@ -600,8 +603,8 @@ All of it in the app's own storage on the phone, which no other app can read:
   of its key, the phone's own id there, and the token the phone signs in with, in Android's
   encrypted storage for the app, whose key the Android Keystore holds, or in an iPhone's keychain,
   kept to that iPhone alone; with them, a random value in the app's files that marks this install;
-- the messages you've typed but not sent, in a file, each until you send it or its session goes,
-  and all of them once the phone is no longer paired;
+- the messages you've typed but not sent, in a file, each computer's apart, each until you send it
+  or its session goes, and a computer's once the phone no longer keeps that computer;
 - copies of the photos and files you pick or paste to send, in the app's cache, each until it leaves
   the message, sent or taken off, or its session goes, and any still there when the app next starts;
   and of a transcript you export, until you export another or the app next starts;
@@ -713,7 +716,8 @@ permission first. Until then, the app never contacts Firebase. Once they're on:
   and within 60 days in any case. As it unpairs, the phone gives up that computer's key, and the
   token too once no computer it's paired with has notifications on.
 - Forgetting a computer on the phone, which that computer doesn't hear of, gives up its key and the
-  token at once, and the phone takes a new token for its other computers as it next links to each.
+  token at once. The computer the phone is on takes a new token at once, and its other computers as
+  the phone next links to each.
   The server deletes the old token the next time that computer sends to it, as Firebase answers that
   it's gone, or within 60 days.
 
